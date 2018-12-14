@@ -3,9 +3,6 @@ require(shiny)
 #require(baseballr) <- don't need this currently b/c I create the funcitons below
 require(tidyverse)
 require(ggiraph)
-#require(lubridate)
-#require(zoo)
-#require(ggridges)
 
 # Scrape MLB game logs for batters from Fangraphs (from baseballr package)
 batter_game_logs_fg <- function(playerid, year = 2017) {
@@ -81,7 +78,7 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   payload
 }  
 
-### Read in MLB Batters from 2017/2018
+### Read in MLB/MiLB Batters from 2017/2018
 batters2 <- read.csv("data/mlb_2018_batter_ids.csv",header=T)
 batters3 <- read.csv("data/milb_2018_batter_ids.csv",header =T)
 ### Create Names list to reference in drop down
@@ -137,30 +134,37 @@ ui <- fluidPage(
        </div>
        </div>
        "
-  ),br(),
+  ),
+  br(),
   # Application title
   titlePanel("MiLB to MLB Rolling Game Log Graphs"),
 
-  # Sidebar with a slider input for number of bins 
+  # well panel that holds all the selections
   wellPanel(
     fluidRow(
       column(4,
              radioButtons("playerlistchoice",
               "Select from either MLB or MiLB player pool:",
               choices = list("MiLB" = "MiLB","MLB" = "MLB"), inline = TRUE, selected = "MiLB"),
+             # Choose Player
              selectInput("playername", "Player (delete & type)", choices = nameselect$NameTeam, selected = "Eloy Jimenez (- - -)"),
+             # Choose Metric
              selectInput("metric", "Metric", choices = list(
                "wRC+", "SLG", "ISO", "K%","BB%", "SB & Attempts per 600 PA"
              )),
+             # slider for number of games for rolling avg
              sliderInput("rolling",
                           "Games For Rolling Avg:",
                           min = 5, max=162, value = 30),
+             # filter season text boxes
              div(style="display:inline-block",textInput("yearlower","Filter Season Start:",value="")),
              div(style="display:inline-block",textInput("yearupper","Filter Season End:",value="2018")),
+             # graph options check boxes
              checkboxGroupInput("graphControl", label = "Graph Options (Add/Remove)", 
                                 choices = list("Smoothed Line" = 1, "Points" = 2, "Career Avg" = 3),
                                 selected = c(1,2,3), inline=T),
              
+             # button that creates the graphs
              actionButton("createGraph","Create Graph")
       ),
       column(4,
@@ -171,10 +175,12 @@ ui <- fluidPage(
       )
     )
   ),
+ # section for output  
  tabsetPanel(type="tabs",
   tabPanel("Trend",
     column(12, 
            br(),
+           # interactive output
            ggiraphOutput("Plot1", width = "1200px", height = "600px")
     )
   ),
