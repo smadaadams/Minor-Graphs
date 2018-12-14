@@ -340,6 +340,12 @@ server <- function(input, output, session) {
     # run when create graph button is clicked
     input$createGraph
     
+    #progress bar
+    withProgress(message = 'Creating Graph', style = "notification", value = 0.9, {
+      Sys.sleep(0.25)
+      
+    isolate({
+      
     # create rolling avg variable
     FilteredGraphData <- filteredTable() %>% 
       mutate(Roll_wRC_plus = round(as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")),0),
@@ -349,12 +355,8 @@ server <- function(input, output, session) {
              Roll_ISO = round(as.numeric(rollmean(as.numeric(ISO), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_SB = round(as.numeric(rollmean(as.numeric(SB_per_600), isolate(input$rolling), fill=NA,align="right")),0),
              Roll_SB_Attempts = round(as.numeric(rollmean(as.numeric(SB_attempts_per_600), isolate(input$rolling), fill=NA,align="right")),0)
-             )
-    
-    #progress bar
-    withProgress(message = 'Creating Graph', style = "notification", value = 0.9, {
-      Sys.sleep(0.25)
-      isolate({
+      )   
+        
     if(input$playerlistchoice=="MLB"){
       player <- which(battersMLB$Name==isolate(input$playername))
       titlevar <- "MiLB & MLB"
@@ -500,7 +502,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
         geom_smooth(aes(y=Roll_SB),se=F, linetype=alphaLine) +
         geom_smooth(aes(y=Roll_SB_Attempts),se=F,color="Red") +
         theme_smada()
-      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      gg <- girafe(print(g), width=1, width_svg = 12.5, height_svg = 6.25)
       girafe_options(gg, opts_zoom(max = 5), opts_hover(css = "fill:red;r:4pt;"))
     }
   })
@@ -515,10 +517,22 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       
     isolate({
       
+    FilteredGraphData <- filteredTable() %>% 
+      mutate(Roll_wRC_plus = round(as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")),0),
+             Roll_SLG = round(as.numeric(rollmean(as.numeric(SLG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
+             Roll_BB = round(as.numeric(rollmean(as.numeric(BB_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
+             Roll_K = round(as.numeric(rollmean(as.numeric(K_perc), isolate(as.numeric(input$rolling)), fill=NA, align="right")),3),
+             Roll_ISO = round(as.numeric(rollmean(as.numeric(ISO), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
+             Roll_SB = round(as.numeric(rollmean(as.numeric(SB_per_600), isolate(input$rolling), fill=NA,align="right")),0),
+             Roll_SB_Attempts = round(as.numeric(rollmean(as.numeric(SB_attempts_per_600), isolate(input$rolling), fill=NA,align="right")),0)
+      )   
+      
     if(input$playerlistchoice=="MLB"){
       player <- which(battersMLB$Name==input$playername)
+      titlevar <- "MiLB & MLB"
     } else {
       player <- which(battersMiLB$Name==input$playername)
+      titlevar <- "MiLB"
     }
     
     if(1 %in% input$graphControl){alphaLine="density_ridges"} else {alphaLine="binline"} 
@@ -527,7 +541,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       
     yearlower <- isolate(input$yearlower)
     yearupper <- isolate(input$yearupper)
-    FilteredGraphData <- filteredTable() %>% 
+    FilteredGraphData <- FilteredGraphData %>% 
       filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
       filter(Season<=ifelse(yearupper=="",3000,yearupper))    
     
@@ -537,7 +551,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
     
   if(input$metric == "K%"){
     ### K% graph
-    ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(K_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),y=as.factor(Season),fill=Level)) +
+    ggplot(data=FilteredGraphData, aes(x=Roll_K, y=as.factor(Season), fill=Level)) +
       geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
                           jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
       #scale_point_color_hue(l = 40) +
@@ -545,66 +559,62 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       theme_smada() +
       labs(x="K%", y="Season") +
       scale_x_continuous(labels = scales::percent) +
-      ggtitle(paste(isolate(input$playername),"MiLB & MLB K% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      ggtitle(paste(isolate(input$playername),titlevar,"K% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment)
     
   } else if(input$metric == "BB%"){
     ### BB% graph
-    ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(BB_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),y=as.factor(Season),fill=Level)) +
+    ggplot(data=FilteredGraphData, aes(x=Roll_BB, y=as.factor(Season), fill=Level)) +
       geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
                           jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
-      geom_vline(xintercept=metrics$MiLB_BB_perc,linetype="dashed", alpha=alphaAvg)  +
+      geom_vline(xintercept=metrics$MiLB_BB_perc, linetype="dashed", alpha=alphaAvg)  +
       theme_smada() +
       labs(x="BB%", y="Season")+
       scale_x_continuous(labels = scales::percent) +
-      ggtitle(paste(isolate(input$playername),"MiLB & MLB BB% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      ggtitle(paste(isolate(input$playername),titlevar,"BB% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment)
   } else if(input$metric == "SLG"){
-    ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(SLG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),y=as.factor(Season),fill=Level)) +
+    ggplot(data=FilteredGraphData, aes(x=Roll_SLG, y=as.factor(Season), fill=Level)) +
       geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
                           jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
-      geom_vline(xintercept=metrics$MiLB_Slug,linetype="dashed", alpha=alphaAvg)  +
+      geom_vline(xintercept=metrics$MiLB_Slug, linetype="dashed", alpha=alphaAvg)  +
       theme_smada() +
       labs(x="SLG", y="Season")+
-      ggtitle(paste(isolate(input$playername),"MiLB & MLB SLG rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      ggtitle(paste(isolate(input$playername),titlevar,"SLG rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment)
     
   } else if(input$metric == "wRC+"){
-    ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")), y=as.factor(Season),fill=Level)) +
+    ggplot(data=FilteredGraphData, aes(x=Roll_wRC_plus, y=as.factor(Season),fill=Level)) +
       geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
                           jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
       geom_vline(xintercept=100) +
       geom_vline(xintercept=metrics$MiLB_wRC_plus,linetype="dashed", alpha=alphaAvg)  +
       theme_smada() +
       labs(x="wRC+", y="Season")+
-      ggtitle(paste(isolate(input$playername),"MiLB & MLB wRC+ rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average, Solid Line = 100 wRC+") +
+      ggtitle(paste(isolate(input$playername),titlevar,"wRC+ rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average, Solid Line = 100 wRC+") +
       labs(caption = footerComment)
     
   } else if(input$metric == "ISO"){
-    ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(ISO), isolate(as.numeric(input$rolling)), fill=NA,align="right")),y=as.factor(Season),fill=Level)) +
+    ggplot(data=FilteredGraphData, aes(x=Roll_ISO, y=as.factor(Season), fill=Level)) +
       geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
                           jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
       geom_vline(xintercept=metrics$MiLB_ISO,linetype="dashed", alpha=alphaAvg)  +
       theme_smada() +
       labs(x="ISO", y="Season")+
-      ggtitle(paste(isolate(input$playername),"MiLB & MLB ISO rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      ggtitle(paste(isolate(input$playername),titlevar,"ISO rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment)
     
-  } #else if(input$metric == "SB & Attempts per 600 PA"){
+  } else if(input$metric == "SB & Attempts per 600 PA"){
   #   ### SB & Attempts
-  #   ggplot(data= FilteredGraphData, aes(as.Date(Date2), as.numeric(rollmean(as.numeric(SB_per_600), input$rolling, fill=NA,align="right")))) +
-  #     geom_line(aes(y=rollmean(as.numeric(SB_per_600), isolate(as.numeric(input$rolling)), fill=NA,align="right"),group=Level, color=Level),size=1.5) +
-  #     ylim(0, NA) +
-  #     geom_point(aes(y=rollmean(as.numeric(SB_per_600), isolate(as.numeric(input$rolling)), fill=NA,align="right"),group=Level, color=Level), size=2) +
-  #     geom_smooth(aes(y=rollmean(as.numeric(SB_per_600), isolate(as.numeric(input$rolling)), fill=NA,align="right")),se=F) +
-  #     geom_smooth(aes(y=rollmean(as.numeric(SB_attempts_per_600), isolate(as.numeric(input$rolling)), fill=NA,align="right")),se=F,color="Red") +
-  #     geom_hline(yintercept=MiLB_SB_per_600,linetype="dashed") +  # geom_hline(yintercept=MLB_SB_per_600,linetype="dashed", color="#E76BF3", size=.7) +
-  #     facet_wrap(~Season) +
-  #     ggtitle(paste(isolate(input$playername),"MiLB SBs & Attempts per 600 PA rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
-  #     theme_smada() +
-  #     labs(x="Month", y="SBs & Attempts") +
-  #     scale_x_date(date_breaks = "1 month", date_labels="%b")
-  # }
+    ggplot(data=FilteredGraphData, aes(x=Roll_SB, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_SB_per_600, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="SB per 600 PA", y="Season")+
+      ggtitle(paste(isolate(input$playername),titlevar,"SB per 600 PA rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment) 
+    }
     })
     })  
   })
