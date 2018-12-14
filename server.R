@@ -372,11 +372,11 @@ server <- function(input, output, session) {
     FilteredGraphData <- FilteredGraphData %>% 
       filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
       filter(Season<=ifelse(yearupper=="",3000,yearupper))  
-    
+
     footerComment <- "-----------------------------------------------------------------------------------------------------------------------------------
 Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
 Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
-      
+    
     if(input$metric == "K%"){
       ### K% graph
       g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_K)) + 
@@ -531,6 +531,10 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
       filter(Season<=ifelse(yearupper=="",3000,yearupper))    
     
+    footerComment <- "-----------------------------------------------------------------------------------------------------------------------------------
+Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
+Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
+    
   if(input$metric == "K%"){
     ### K% graph
     ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(K_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),y=as.factor(Season),fill=Level)) +
@@ -542,9 +546,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       labs(x="K%", y="Season") +
       scale_x_continuous(labels = scales::percent) +
       ggtitle(paste(isolate(input$playername),"MiLB & MLB K% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
-      labs(caption = "-----------------------------------------------------------------------------------------------------------------------------------
-Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
-Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
+      labs(caption = footerComment)
     
   } else if(input$metric == "BB%"){
     ### BB% graph
@@ -556,9 +558,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
       labs(x="BB%", y="Season")+
       scale_x_continuous(labels = scales::percent) +
       ggtitle(paste(isolate(input$playername),"MiLB & MLB BB% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
-      labs(caption = "-----------------------------------------------------------------------------------------------------------------------------------
-Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
-Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
+      labs(caption = footerComment)
   } else if(input$metric == "SLG"){
     ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(SLG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),y=as.factor(Season),fill=Level)) +
       geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
@@ -567,9 +567,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
       theme_smada() +
       labs(x="SLG", y="Season")+
       ggtitle(paste(isolate(input$playername),"MiLB & MLB SLG rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
-      labs(caption = "-----------------------------------------------------------------------------------------------------------------------------------
-Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
-Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
+      labs(caption = footerComment)
     
   } else if(input$metric == "wRC+"){
     ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")), y=as.factor(Season),fill=Level)) +
@@ -580,9 +578,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
       theme_smada() +
       labs(x="wRC+", y="Season")+
       ggtitle(paste(isolate(input$playername),"MiLB & MLB wRC+ rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average, Solid Line = 100 wRC+") +
-      labs(caption = "-----------------------------------------------------------------------------------------------------------------------------------
-Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
-Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
+      labs(caption = footerComment)
     
   } else if(input$metric == "ISO"){
     ggplot(data=FilteredGraphData, aes(x=as.numeric(rollmean(as.numeric(ISO), isolate(as.numeric(input$rolling)), fill=NA,align="right")),y=as.factor(Season),fill=Level)) +
@@ -592,9 +588,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
       theme_smada() +
       labs(x="ISO", y="Season")+
       ggtitle(paste(isolate(input$playername),"MiLB & MLB ISO rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
-      labs(caption = "-----------------------------------------------------------------------------------------------------------------------------------
-Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
-Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb")
+      labs(caption = footerComment)
     
   } #else if(input$metric == "SB & Attempts per 600 PA"){
   #   ### SB & Attempts
