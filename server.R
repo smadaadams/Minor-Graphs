@@ -196,6 +196,8 @@ server <- function(input, output, session) {
         metrics$MiLB_BABIP <- mean(as.numeric(TempLog$BABIP))
         metrics$MiLB_SB_per_600 <- sum(as.numeric(TempLog$SB),na.rm = T)*600/sum(as.numeric(TempLog$PA),na.rm = T)
         metrics$MiLB_SB_attempts_per_600 <- (sum(as.numeric(TempLog$CS),na.rm = T)+sum(as.numeric(TempLog$SB),na.rm = T))*600/sum(as.numeric(TempLog$PA),na.rm = T)
+        metrics$MiLB_BA <- sum(as.numeric(TempLog$H),na.rm = T)/sum(as.numeric(TempLog$AB),na.rm=T)
+        metrics$MiLB_OBP <- sum(sum(as.numeric(TempLog$H),na.rm = T),sum(as.numeric(TempLog$HBP),na.rm=T),sum(as.numeric(TempLog$BB),na.rm = T))/sum(as.numeric(TempLog$PA),na.rm=T)
         metrics$MiLB_Slug <- sum(sum(as.numeric(TempLog$X1B),na.rm = T),2*sum(as.numeric(TempLog$X2B),na.rm = T),3*sum(as.numeric(TempLog$X3B),na.rm = T),4*sum(as.numeric(TempLog$HR),na.rm = T))/sum(as.numeric(TempLog$AB),na.rm = T)
         metrics$MLB_SB_per_600 <- sum(as.numeric(TempLog$SB))*600/sum(as.numeric(TempLog$PA))
         
@@ -233,6 +235,8 @@ server <- function(input, output, session) {
           metrics$MiLB_BABIP <- mean(as.numeric(TempLog$BABIP))
           metrics$MiLB_SB_per_600 <- sum(as.numeric(TempLog$SB),na.rm = T)*600/sum(as.numeric(TempLog$PA),na.rm = T)
           metrics$MiLB_SB_attempts_per_600 <- (sum(as.numeric(TempLog$CS),na.rm = T)+sum(as.numeric(TempLog$SB),na.rm = T))*600/sum(as.numeric(TempLog$PA),na.rm = T)
+          metrics$MiLB_BA <- sum(as.numeric(TempLog$H),na.rm = T)/sum(as.numeric(TempLog$AB),na.rm=T)
+          metrics$MiLB_OBP <- sum(sum(as.numeric(TempLog$H),na.rm = T),sum(as.numeric(TempLog$HBP),na.rm=T),sum(as.numeric(TempLog$BB),na.rm = T))/sum(as.numeric(TempLog$PA),na.rm=T)
           metrics$MiLB_Slug <- sum(sum(as.numeric(TempLog$X1B),na.rm = T),2*sum(as.numeric(TempLog$X2B),na.rm = T),3*sum(as.numeric(TempLog$X3B),na.rm = T),4*sum(as.numeric(TempLog$HR),na.rm = T))/sum(as.numeric(TempLog$AB),na.rm = T)
           metrics$MLB_SB_per_600 <- sum(as.numeric(TempLog$SB))*600/sum(as.numeric(TempLog$PA))
           
@@ -349,6 +353,8 @@ server <- function(input, output, session) {
     # create rolling avg variable
     FilteredGraphData <- filteredTable() %>% 
       mutate(Roll_wRC_plus = round(as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")),0),
+             Roll_BA = round(as.numeric(rollmean(as.numeric(AVG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
+             Roll_OBP = round(as.numeric(rollmean(as.numeric(OBP), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_SLG = round(as.numeric(rollmean(as.numeric(SLG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_BB = round(as.numeric(rollmean(as.numeric(BB_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_K = round(as.numeric(rollmean(as.numeric(K_perc), isolate(as.numeric(input$rolling)), fill=NA, align="right")),3),
@@ -481,7 +487,47 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
                                    data_id= Date, color=Level),size=1) +
         theme_smada()
       gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
-      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;") )
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
+    } else if(input$metric == "BA"){
+      g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_BA)) +
+        # Line, Points, Smoothed Line
+        geom_line(aes(y=Roll_BA,group=Level, color=Level),size=1.5) + 
+        ylim(0, NA) +
+        geom_point(aes(y=Roll_BA,group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_smooth(se=F, linetype=alphaLine) +
+        geom_hline(yintercept=metrics$MiLB_BA, linetype="dashed", alpha=alphaAvg) + 
+        facet_wrap(~Season) +
+        # TITLE
+        ggtitle(paste(isolate(input$playername),titlevar,"BA rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
+        labs(caption = footerComment) +
+        labs(x="Month", y="BA") +
+        scale_x_date(date_breaks = "1 month", date_labels="%b")+
+        geom_point_interactive(aes(tooltip = paste(paste0("Last ",isolate(input$rolling)," Games up to ", Date), 
+                                                   Level, paste0(Roll_BA," BA"),sep='\n'), 
+                                   data_id= Date, color=Level),size=1) +
+        theme_smada()
+      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
+    } else if(input$metric == "OBP"){
+      g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_OBP)) +
+        # Line, Points, Smoothed Line
+        geom_line(aes(y=Roll_OBP, group=Level, color=Level),size=1.5) + 
+        ylim(0, NA) +
+        geom_point(aes(y=Roll_OBP, group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_smooth(se=F, linetype=alphaLine) +
+        geom_hline(yintercept=metrics$MiLB_OBP, linetype="dashed", alpha=alphaAvg) + 
+        facet_wrap(~Season) +
+        # TITLE
+        ggtitle(paste(isolate(input$playername),titlevar,"OBP rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
+        labs(caption = footerComment) +
+        labs(x="Month", y="OBP") +
+        scale_x_date(date_breaks = "1 month", date_labels="%b")+
+        geom_point_interactive(aes(tooltip = paste(paste0("Last ",isolate(input$rolling)," Games up to ", Date), 
+                                                   Level, paste0(Roll_OBP," OBP"),sep='\n'), 
+                                   data_id= Date, color=Level),size=1) +
+        theme_smada()
+      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
     } else if(input$metric == "SB & Attempts per 600 PA"){
       ### SB & Attempts
       g <- ggplot(data= FilteredGraphData, aes(as.Date(Date2), Roll_SB)) +
@@ -519,6 +565,8 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       
     FilteredGraphData <- filteredTable() %>% 
       mutate(Roll_wRC_plus = round(as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")),0),
+             Roll_BA = round(as.numeric(rollmean(as.numeric(AVG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
+             Roll_OBP = round(as.numeric(rollmean(as.numeric(OBP), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_SLG = round(as.numeric(rollmean(as.numeric(SLG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_BB = round(as.numeric(rollmean(as.numeric(BB_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_K = round(as.numeric(rollmean(as.numeric(K_perc), isolate(as.numeric(input$rolling)), fill=NA, align="right")),3),
@@ -603,7 +651,24 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       labs(x="ISO", y="Season")+
       ggtitle(paste(isolate(input$playername),titlevar,"ISO rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment)
-    
+  } else if(input$metric == "BA"){
+    ggplot(data=FilteredGraphData, aes(x=Roll_BA, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_BA, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="BA", y="Season")+
+      ggtitle(paste(isolate(input$playername),titlevar,"BA rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment) 
+  } else if(input$metric == "OBP"){
+    ggplot(data=FilteredGraphData, aes(x=Roll_OBP, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_OBP, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="OBP", y="Season")+
+      ggtitle(paste(isolate(input$playername),titlevar,"OBP rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment)  
   } else if(input$metric == "SB & Attempts per 600 PA"){
   #   ### SB & Attempts
     ggplot(data=FilteredGraphData, aes(x=Roll_SB, y=as.factor(Season), fill=Level)) +
