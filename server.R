@@ -354,6 +354,7 @@ server <- function(input, output, session) {
     FilteredGraphData <- filteredTable() %>% 
       mutate(Roll_wRC_plus = round(as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")),0),
              Roll_BA = round(as.numeric(rollmean(as.numeric(AVG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
+             Roll_BABIP = round(as.numeric(rollmean(as.numeric(BABIP), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_OBP = round(as.numeric(rollmean(as.numeric(OBP), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_SLG = round(as.numeric(rollmean(as.numeric(SLG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_BB = round(as.numeric(rollmean(as.numeric(BB_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
@@ -508,6 +509,26 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
         theme_smada()
       gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
       girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
+    } else if(input$metric == "BABIP"){
+      g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_BABIP)) +
+        # Line, Points, Smoothed Line
+        geom_line(aes(y=Roll_BABIP,group=Level, color=Level),size=1.5) + 
+        ylim(0, NA) +
+        geom_point(aes(y=Roll_BABIP,group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_smooth(se=F, linetype=alphaLine) +
+        geom_hline(yintercept=metrics$MiLB_BABIP, linetype="dashed", alpha=alphaAvg) + 
+        facet_wrap(~Season) +
+        # TITLE
+        ggtitle(paste(isolate(input$playername),titlevar,"BABIP rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
+        labs(caption = footerComment) +
+        labs(x="Month", y="BABIP") +
+        scale_x_date(date_breaks = "1 month", date_labels="%b")+
+        geom_point_interactive(aes(tooltip = paste(paste0("Last ",isolate(input$rolling)," Games up to ", Date), 
+                                                   Level, paste0(Roll_BABIP," BABIP"),sep='\n'), 
+                                   data_id= Date, color=Level),size=1) +
+        theme_smada()
+      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
     } else if(input$metric == "OBP"){
       g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_OBP)) +
         # Line, Points, Smoothed Line
@@ -566,6 +587,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
     FilteredGraphData <- filteredTable() %>% 
       mutate(Roll_wRC_plus = round(as.numeric(rollmean(as.numeric(wRC_plus), isolate(as.numeric(input$rolling)), fill=NA, align="right")),0),
              Roll_BA = round(as.numeric(rollmean(as.numeric(AVG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
+             Roll_BABIP = round(as.numeric(rollmean(as.numeric(BABIP), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_OBP = round(as.numeric(rollmean(as.numeric(OBP), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_SLG = round(as.numeric(rollmean(as.numeric(SLG), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
              Roll_BB = round(as.numeric(rollmean(as.numeric(BB_perc), isolate(as.numeric(input$rolling)), fill=NA,align="right")),3),
@@ -659,6 +681,15 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       theme_smada() +
       labs(x="BA", y="Season")+
       ggtitle(paste(isolate(input$playername),titlevar,"BA rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment)
+  } else if(input$metric == "BABIP"){
+    ggplot(data=FilteredGraphData, aes(x=Roll_BABIP, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_BABIP, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="BABIP", y="Season")+
+      ggtitle(paste(isolate(input$playername),titlevar,"BABIP rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment) 
   } else if(input$metric == "OBP"){
     ggplot(data=FilteredGraphData, aes(x=Roll_OBP, y=as.factor(Season), fill=Level)) +
