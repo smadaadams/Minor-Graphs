@@ -150,7 +150,8 @@ ui <- fluidPage(
              selectInput("playername", "Player (delete & type)", choices = nameselect$NameTeam, selected = "Eloy Jimenez (- - -)"),
              # Choose Metric
              selectInput("metric", "Metric", choices = list(
-               "wRC+", "ISO", "K%", "BB%", "BABIP", "BA", "OBP", "SLG", "SB & Attempts per 600 PA"
+               "wRC+", "ISO", "K%", "BB%", "BABIP", "BA", "OBP", "SLG", "SB & Attempts per 600 PA", 
+               "FB%", "GB%", "LD%", "PU%", "HR/FB" 
              )),
              # slider for number of games for rolling avg
              sliderInput("rolling",
