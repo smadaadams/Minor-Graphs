@@ -144,14 +144,14 @@ ui <- fluidPage(
     fluidRow(
       column(4,
              radioButtons("playerlistchoice",
-              "Select from either MLB or MiLB player pool:",
+              "Select from either MiLB or MLB player pool:",
               choices = list("MiLB" = "MiLB","MLB" = "MLB"), inline = TRUE, selected = "MiLB"),
              # Choose Player
              selectInput("playername", "Player (delete & type)", choices = nameselect$NameTeam, selected = "Eloy Jimenez (- - -)"),
              # Choose Metric
              selectInput("metric", "Metric", choices = list(
                "wRC+", "ISO", "K%", "BB%", "BABIP", "BA", "OBP", "SLG", "SB & Attempts per 600 PA", 
-               "FB%", "GB%", "LD%", "PU%", "HR/FB" 
+               "FB%", "GB%", "LD%", "PU%", "HR/FB", "Pull%", "Cent%", "Oppo%" 
              )),
              # slider for number of games for rolling avg
              sliderInput("rolling",
@@ -169,7 +169,11 @@ ui <- fluidPage(
              actionButton("createGraph","Create Graph")
       ),
       column(4,
-             helpText("Created by ", a("@Smada_bb",href="https://twitter.com/smada_bb"),br(),"Data from ",
+             helpText("Created by ", a("@Smada_bb",href="https://twitter.com/smada_bb"),
+                      ", code availabe on ", 
+                      a("Github", href="https://github.com/smadaplaysfantasy/MiLB_Trend_Graphs/"),".",
+                      br(),
+                      "Data from ",
                       a("Fangraphs,",href="https://fangraphs.com"),"pulled with help from Bill Petti's",
                       a("baseballr package", href="http://billpetti.github.io/baseballr/"),"."),br()#,
             # bookmarkButton()
