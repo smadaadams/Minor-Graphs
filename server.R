@@ -82,21 +82,36 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   payload
 }  
 
-milb_adv_scrape <- function(playerid){
+
+milb_adv_scrape_game <- function(playerid){
   
   vars1="pitcher_throws=&batter_stands=&game_date_gt=&game_date_lt=&home_away=&draft_year=&prospect=&player_type=batter&sort_by=results&sort_order=desc&group_by=name&min_results=&players="
   vars2="&min_pa=1#results"
   
   url <- paste0("https://www.mlb.com/prospects/stats/search/csv?", vars1, playerid,vars2)
   payload <- readr::read_csv(url, na = "null")
-  game_summary <- payload %>% mutate(Date = game_date,
-                                     GB = if_else(hit_trajectory=="ground_ball",1,0),
-                                     FB = if_else(hit_trajectory=="fly_ball",1,0),
-                                     LD = if_else(hit_trajectory=="line_drive",1,0),
-                                     PU = if_else(hit_trajectory=="popup",1,0))
-  game_summary <- game_summary %>% group_by(Date) %>% summarise(GB=sum(GB), FB=sum(FB), LD=sum(LD), PU=sum(PU)) 
+  game_summary <- payload %>% filter(!is.na(hc_x)) %>% 
+    mutate(Date = game_date,
+           GB = if_else(hit_trajectory=="ground_ball",1,0),
+           FB = if_else(hit_trajectory=="fly_ball",1,0),
+           LD = if_else(hit_trajectory=="line_drive",1,0),
+           PU = if_else(hit_trajectory=="popup",1,0),
+           a = sqrt(250^2+(-250)^2),
+           b = sqrt((hc_x-(-125))^2+(hc_y-295)^2),
+           c = sqrt((hc_x-125)^2+(hc_y-45)^2),
+           angle = 180-acos((b^2-a^2-c^2)/(2*a*c))*180/pi,
+           Pull = if_else(angle<30 & bat_side=="R", 1, if_else(angle>=60 & bat_side=="L",1,0)),
+           Center = if_else(angle<60 & angle>=30, 1, 0),
+           Oppo = if_else(angle>=60 & bat_side=="R", 1, if_else(angle<30 & bat_side=="L",1,0))
+    )
   
-  game_summary <- game_summary %>% group_by(Date) %>% mutate(in_play = sum(GB,FB,LD,PU), FBPU = sum(FB,PU)) %>% filter(in_play!=0) %>% 
+  game_summary <- game_summary %>% group_by(Date) %>% 
+    summarise(GB=sum(GB), FB=sum(FB), LD=sum(LD), PU=sum(PU), 
+              Pull=sum(Pull), Center=sum(Center), Oppo=sum(Oppo)) 
+  
+  game_summary <- game_summary %>% group_by(Date) %>% 
+    mutate(in_play = sum(GB,FB,LD,PU), FBPU = sum(FB,PU)) %>% 
+    filter(in_play != 0) %>% 
     mutate(Season = year(Date),Date2 = paste0("2017-",month(Date),"-",day(Date)))
 }
 
@@ -182,7 +197,7 @@ server <- function(input, output, session) {
       if(is.null(batter_logs_mlb[player][[1]])){
         batter_logs[player] <- list(as.data.frame(milb_batter_game_logs_fg(battersMLB$playerid[player],year)))
         batter_logs_mlb[player] <- list(as.data.frame(batter_game_logs_fg(battersMLB$playerid[player],year)))
-        batter_logs_savant[player] <- list(as.data.frame(milb_adv_scrape(battersMLB$mlbid[player])))
+        batter_logs_savant[player] <- list(as.data.frame(milb_adv_scrape_game(battersMLB$mlbid[player])))
         
         # Create a MiLB game log that removes 0 PA appearances & adds Season variable, SB per 600 metrics
         TempLog <- as.data.frame(batter_logs[player]) %>% filter(PA!=0) %>% 
@@ -228,7 +243,10 @@ server <- function(input, output, session) {
         metrics$MiLB_LD <- sum(as.numeric(MiLB_Only$LD),na.rm = T)/sum(as.numeric(MiLB_Only$in_play),na.rm = T)
         metrics$MiLB_PU <- sum(as.numeric(MiLB_Only$PU),na.rm = T)/sum(as.numeric(MiLB_Only$in_play),na.rm = T)
         metrics$MiLB_HRFB <- sum(as.numeric(MiLB_Only$HR),na.rm = T)/sum(as.numeric(MiLB_Only$FBPU),na.rm = T)
-
+        metrics$MiLB_Pull <- sum(as.numeric(MiLB_Only$Pull),na.rm = T)/sum(as.numeric(MiLB_Only$in_play),na.rm = T)
+        metrics$MiLB_Center <- sum(as.numeric(MiLB_Only$Center),na.rm = T)/sum(as.numeric(MiLB_Only$in_play),na.rm = T)
+        metrics$MiLB_Oppo <- sum(as.numeric(MiLB_Only$Oppo),na.rm = T)/sum(as.numeric(MiLB_Only$in_play),na.rm = T)
+        
         Combined_milb_mlbLog2
         }
       }
@@ -239,7 +257,7 @@ server <- function(input, output, session) {
         ### if we haven't scraped the data, do that
         if(is.null(batter_logs_MiLB[player][[1]])){
           batter_logs[player] <- list(as.data.frame(milb_batter_game_logs_fg(battersMiLB$playerid[player],year)))
-          batter_logs_savant[player] <- list(as.data.frame(milb_adv_scrape(battersMiLB$mlbid[player])))
+          batter_logs_savant[player] <- list(as.data.frame(milb_adv_scrape_game(battersMiLB$mlbid[player])))
           
           # Create a temporary MiLB game log that removes 0 PA games & adds Season variable, SB per 600 metrics
           # Create Date2 variable for consistent x-axis 
@@ -269,11 +287,12 @@ server <- function(input, output, session) {
           metrics$MiLB_LD <- sum(as.numeric(TempLogSavant$LD),na.rm = T)/sum(as.numeric(TempLogSavant$in_play),na.rm = T)
           metrics$MiLB_PU <- sum(as.numeric(TempLogSavant$PU),na.rm = T)/sum(as.numeric(TempLogSavant$in_play),na.rm = T)
           metrics$MiLB_HRFB <- sum(as.numeric(TempLog$HR),na.rm = T)/sum(as.numeric(TempLogSavant$FBPU),na.rm = T)
-
+          metrics$MiLB_Pull <- sum(as.numeric(TempLogSavant$Pull),na.rm = T)/sum(as.numeric(TempLogSavant$in_play),na.rm = T)
+          metrics$MiLB_Center <- sum(as.numeric(TempLogSavant$Center),na.rm = T)/sum(as.numeric(TempLogSavant$in_play),na.rm = T)
+          metrics$MiLB_Oppo <- sum(as.numeric(TempLogSavant$Oppo),na.rm = T)/sum(as.numeric(TempLogSavant$in_play),na.rm = T)
+          
           # Merge Fangraphs data with Savant data and order levels correctly
-         # Combined_milb_mlbLog2 <- TempLog 
-          
-          
+
           Combined_milb_mlbLog2 <- TempLogSavant %>% left_join(TempLog, by=c("Date","Season","Date2")) %>%
           filter (!is.na(Level)) %>% 
             mutate(Level = fct_relevel(Level,"(R)","(A-)","(A)","(A+)","(AA)","(AAA)","MLB"))
@@ -336,7 +355,14 @@ server <- function(input, output, session) {
              Roll_PU = round(as.numeric(rollmean(as.numeric(PU), isolate(input$rolling), fill=NA,align="right"))/
                                as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3),
              Roll_HRFB = round(as.numeric(rollmean(as.numeric(HR), isolate(input$rolling), fill=NA,align="right"))/
-                               as.numeric(rollmean(as.numeric(FBPU), isolate(input$rolling), fill=NA,align="right")),3)
+                               as.numeric(rollmean(as.numeric(FBPU), isolate(input$rolling), fill=NA,align="right")),3),
+             Roll_Pull = round(as.numeric(rollmean(as.numeric(Pull), isolate(input$rolling), fill=NA,align="right"))/
+                               as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3),
+             Roll_Center = round(as.numeric(rollmean(as.numeric(Center), isolate(input$rolling), fill=NA,align="right"))/
+                               as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3),
+             Roll_Oppo = round(as.numeric(rollmean(as.numeric(Oppo), isolate(input$rolling), fill=NA,align="right"))/
+                               as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3)
+             
         )   
         
     if(input$playerlistchoice=="MLB"){
@@ -646,7 +672,67 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
         geom_smooth(se=F, linetype=alphaLine) +
         theme_smada()
       gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
-      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;") )
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
+    } else if(input$metric == "Pull%"){
+      g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_Pull)) +
+        # Line, Points, Smoothed Line
+        geom_line(aes(y=Roll_Pull, group=Level, color=Level), size=1.5) + 
+        ylim(0, NA) +
+        geom_point(aes(y=Roll_Pull,group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_hline(yintercept = metrics$MiLB_Pull, linetype="dashed", alpha=alphaAvg) + 
+        facet_wrap(~Season) +
+        # TITLE
+        ggtitle(paste(isolate(input$playername),titlevar,"Pull% rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
+        labs(caption = footerComment) +
+        labs(x="Month", y="Pull%") +
+        scale_x_date(date_breaks = "1 month", date_labels="%b") +
+        geom_point_interactive(aes(tooltip = paste(paste0("Last ",isolate(input$rolling)," Games up to ", Date), 
+                                                   Level, paste0(100*Roll_Pull, "% Pull Rate"), sep='\n'), 
+                                   data_id= Date, color=Level), size=1) +
+        geom_smooth(se=F, linetype=alphaLine) +
+        theme_smada()
+      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
+    } else if(input$metric == "Cent%"){
+      g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_Center)) +
+        # Line, Points, Smoothed Line
+        geom_line(aes(y=Roll_Center, group=Level, color=Level), size=1.5) + 
+        ylim(0, NA) +
+        geom_point(aes(y=Roll_Center, group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_hline(yintercept = metrics$MiLB_Center, linetype="dashed", alpha=alphaAvg) + 
+        facet_wrap(~Season) +
+        # TITLE
+        ggtitle(paste(isolate(input$playername),titlevar,"Cent% rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
+        labs(caption = footerComment) +
+        labs(x="Month", y="Cent%") +
+        scale_x_date(date_breaks = "1 month", date_labels="%b") +
+        geom_point_interactive(aes(tooltip = paste(paste0("Last ",isolate(input$rolling)," Games up to ", Date), 
+                                                   Level, paste0(100*Roll_Center, "% Cent Rate"), sep='\n'), 
+                                   data_id= Date, color=Level), size=1) +
+        geom_smooth(se=F, linetype=alphaLine) +
+        theme_smada()
+      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
+    } else if(input$metric == "Oppo%"){
+      g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_Oppo)) +
+        # Line, Points, Smoothed Line
+        geom_line(aes(y=Roll_Oppo, group=Level, color=Level), size=1.5) + 
+        ylim(0, NA) +
+        geom_point(aes(y=Roll_Oppo, group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_hline(yintercept = metrics$MiLB_Oppo, linetype="dashed", alpha=alphaAvg) + 
+        facet_wrap(~Season) +
+        # TITLE
+        ggtitle(paste(isolate(input$playername),titlevar,"Oppo% rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
+        labs(caption = footerComment) +
+        labs(x="Month", y="Oppo%") +
+        scale_x_date(date_breaks = "1 month", date_labels="%b") +
+        geom_point_interactive(aes(tooltip = paste(paste0("Last ",isolate(input$rolling)," Games up to ", Date), 
+                                                   Level, paste0(100*Roll_Oppo, "% Oppo Rate"), sep='\n'), 
+                                   data_id= Date, color=Level), size=1) +
+        geom_smooth(se=F, linetype=alphaLine) +
+        theme_smada()
+      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;")) 
     }
   })
   })
@@ -680,8 +766,14 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
              Roll_PU = round(as.numeric(rollmean(as.numeric(PU), isolate(input$rolling), fill=NA,align="right"))/
                                as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3),
              Roll_HRFB = round(as.numeric(rollmean(as.numeric(HR), isolate(input$rolling), fill=NA,align="right"))/
-                                 as.numeric(rollmean(as.numeric(FBPU), isolate(input$rolling), fill=NA,align="right")),3)
-        )   
+                                 as.numeric(rollmean(as.numeric(FBPU), isolate(input$rolling), fill=NA,align="right")),3),
+             Roll_Pull = round(as.numeric(rollmean(as.numeric(Pull), isolate(input$rolling), fill=NA,align="right"))/
+                                 as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3),
+             Roll_Center = round(as.numeric(rollmean(as.numeric(Center), isolate(input$rolling), fill=NA,align="right"))/
+                                   as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3),
+             Roll_Oppo = round(as.numeric(rollmean(as.numeric(Oppo), isolate(input$rolling), fill=NA,align="right"))/
+                                 as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3)
+      )   
       
     if(input$playerlistchoice=="MLB"){
       player <- which(battersMLB$Name==input$playername)
@@ -846,6 +938,36 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       labs(x="SB per 600 PA", y="Season")+
       ggtitle(paste(isolate(input$playername),titlevar,"SB per 600 PA rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment) 
+  } else if(input$metric == "Pull%"){
+    ggplot(data=FilteredGraphData, aes(x=Roll_Pull, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_Pull, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="Pull%", y="Season")+
+      scale_x_continuous(labels = scales::percent) +
+      ggtitle(paste(isolate(input$playername),titlevar,"Pull% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment)
+  } else if(input$metric == "Cent%"){
+    ggplot(data=FilteredGraphData, aes(x=Roll_Center, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_Center, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="Cent%", y="Season")+
+      scale_x_continuous(labels = scales::percent) +
+      ggtitle(paste(isolate(input$playername),titlevar,"Cent% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment)
+  } else if(input$metric == "Oppo%"){
+    ggplot(data=FilteredGraphData, aes(x=Roll_Oppo, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_Oppo, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="Oppo", y="Season")+
+      scale_x_continuous(labels = scales::percent) +
+      ggtitle(paste(isolate(input$playername),titlevar,"Oppo rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment)   
     }
     })
     })  
