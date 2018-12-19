@@ -151,7 +151,7 @@ ui <- fluidPage(
              # Choose Metric
              selectInput("metric", "Metric", choices = list(
                "wRC+", "ISO", "K%", "BB%", "BABIP", "BA", "OBP", "SLG", "SB & Attempts per 600 PA", 
-               "FB%", "GB%", "LD%", "PU%", "HR/FB", "Pull%", "Cent%", "Oppo%" 
+               "FB%", "GB%", "LD%", "PU%", "HR/FB", "Estimated FB Distance","Pull%", "Cent%", "Oppo%" 
              )),
              # slider for number of games for rolling avg
              sliderInput("rolling",

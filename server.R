@@ -115,6 +115,30 @@ milb_adv_scrape_game <- function(playerid){
     mutate(Season = year(Date),Date2 = paste0("2017-",month(Date),"-",day(Date)))
 }
 
+milb_adv_scrape_in_play <- function(playerid){
+  
+  vars1="pitcher_throws=&batter_stands=&game_date_gt=&game_date_lt=&home_away=&draft_year=&prospect=&player_type=batter&sort_by=results&sort_order=desc&group_by=name&min_results=&players="
+  vars2="&min_pa=1#results"
+  
+  url <- paste0("https://www.mlb.com/prospects/stats/search/csv?", vars1, playerid,vars2)
+  payload <- readr::read_csv(url, na = "null")
+  game_summary <- payload %>% filter(!is.na(hc_x)) %>% 
+    mutate(Date = game_date,
+           GB = if_else(hit_trajectory=="ground_ball",1,0),
+           FB = if_else(hit_trajectory=="fly_ball",1,0),
+           LD = if_else(hit_trajectory=="line_drive",1,0),
+           PU = if_else(hit_trajectory=="popup",1,0),
+           a = sqrt(250^2+(-250)^2),
+           b = sqrt((hc_x-(-125))^2+(hc_y-295)^2),
+           c = sqrt((hc_x-125)^2+(hc_y-45)^2),
+           angle = 180-acos((b^2-a^2-c^2)/(2*a*c))*180/pi,
+           Pull = if_else(angle<30 & bat_side=="R", 1, if_else(angle>=60 & bat_side=="L",1,0)),
+           Center = if_else(angle<60 & angle>=30, 1, 0),
+           Oppo = if_else(angle>=60 & bat_side=="R", 1, if_else(angle<30 & bat_side=="L",1,0)),
+           est_distance = 2.20*sqrt((250-hc_x-125)^2+(250-hc_y-45)^2)+13.1
+    )
+}
+
 theme_smada <- function(){
   theme(text = element_text("sans-serif"),
         plot.title = element_text(size=20, vjust=5),
@@ -157,6 +181,7 @@ batter_logs <- NULL
 batter_logs_mlb <- NULL
 batter_logs_MiLB <- NULL
 batter_logs_savant <- NULL
+batter_logs_in_play <- NULL
 
 server <- function(input, output, session) {
   
@@ -301,6 +326,38 @@ server <- function(input, output, session) {
     })
   })
   
+  filteredTable_in_play <- reactive({
+    #progress bar
+    withProgress(message = 'Pulling Data', style = "notification", value = 0.9, {
+      Sys.sleep(0.25)
+      
+      if(isolate(input$playerlistchoice)=="MLB"){
+        player <- which(battersMLB$NameTeam==input$playername)
+        ### if we haven't scraped the data, do that
+        if(is.null(batter_logs_mlb[player][[1]])){
+          batter_logs_in_play[player] <- list(as.data.frame(milb_adv_scrape_in_play(battersMLB$mlbid[player])))
+        
+          TempLogSavant <- as.data.frame((batter_logs_in_play[player])) %>% 
+            mutate(Date = as.Date(Date))
+          
+          TempLogSavant
+        }
+      } 
+      else {
+        player <- which(battersMiLB$NameTeam==input$playername)
+        ### if we haven't scraped the data, do that
+        if(is.null(batter_logs_MiLB[player][[1]])){
+          batter_logs_in_play[player] <- list(as.data.frame(milb_adv_scrape_in_play(battersMiLB$mlbid[player])))
+          
+          TempLogSavant <- as.data.frame((batter_logs_in_play[player])) %>% 
+            mutate(Date = as.Date(Date))
+          
+          TempLogSavant
+        }
+      }  
+    })
+  })
+  
   
   observe({ 
     # FanGraphs Tab - find URL to iframe in
@@ -364,6 +421,20 @@ server <- function(input, output, session) {
                                as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3)
              
         )   
+    
+    FB_distance <- filteredTable_in_play() %>% 
+      filter(hit_trajectory=="fly_ball") %>% 
+      group_by(Date) %>% 
+      summarise(est_distance = mean(est_distance)) %>% 
+      mutate(Season = year(Date), Date2 = paste0("2017-",month(Date),"-",day(Date))) %>% 
+      left_join(FilteredGraphData, by = c("Date","Season","Date2")) %>% 
+      filter(!is.na(Level)) %>% 
+      mutate(Level = fct_relevel(Level,"(R)","(A-)","(A)","(A+)","(AA)","(AAA)","MLB"),
+             Roll_FB_dist = round(as.numeric(rollmean(as.numeric(est_distance), isolate(input$rolling), fill=NA,align="right")),0))  
+    
+    FB_distance_MiLB <- FB_distance %>% filter(Level != "MLB")
+    
+    metrics$MiLB_FB_dist <- mean(as.numeric(FB_distance_MiLB$est_distance),na.rm = T)
         
     if(input$playerlistchoice=="MLB"){
       player <- which(battersMLB$Name==isolate(input$playername))
@@ -382,7 +453,11 @@ server <- function(input, output, session) {
     FilteredGraphData <- FilteredGraphData %>% 
       filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
       filter(Season<=ifelse(yearupper=="",3000,yearupper))  
-
+    
+    FB_distance <- FB_distance %>% 
+      filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
+      filter(Season<=ifelse(yearupper=="",3000,yearupper))
+    
     footerComment <- "-----------------------------------------------------------------------------------------------------------------------------------
 Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
 Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
@@ -391,8 +466,8 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       ### K% graph
       g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_K)) + 
         # Line, Points, Smoothed Line
-        geom_line(aes(y=Roll_K,group=Level, color=Level),size=1.5) + 
-        geom_point(aes(y=Roll_K,group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_line(aes(y=Roll_K, group=Level, color=Level),size=1.5) + 
+        geom_point(aes(y=Roll_K, group=Level, color=Level), size=2, alpha=alphaPoint) +
         geom_hline(yintercept=metrics$MiLB_K_perc,linetype="dashed", alpha=alphaAvg) + 
         facet_wrap(~Season) +
         ggtitle(paste(isolate(input$playername),titlevar,"K% rolling",isolate(as.numeric(input$rolling)),"game average"), 
@@ -732,6 +807,26 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
         geom_smooth(se=F, linetype=alphaLine) +
         theme_smada()
       gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
+      girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;"))
+    } else if(input$metric == "Estimated FB Distance"){
+      g <- ggplot(data=FB_distance, aes(as.Date(Date2), Roll_FB_dist)) +
+        # Line, Points, Smoothed Line
+        geom_line(aes(y=Roll_FB_dist, group=Level, color=Level), size=1.5) + 
+        #ylim(200, NA) +
+        geom_point(aes(y=Roll_FB_dist, group=Level, color=Level), size=2, alpha=alphaPoint) +
+        geom_hline(yintercept = metrics$MiLB_FB_dist, linetype="dashed", alpha=alphaAvg) + 
+        facet_wrap(~Season) +
+        # TITLE
+        ggtitle(paste(isolate(input$playername),titlevar,"Est. FB Distance rolling",isolate(as.numeric(input$rolling)),"game average"), subtitle = "Dashed Line = MiLB Career Average") +
+        labs(caption = footerComment) +
+        labs(x="Month", y="Est. FB Distance") +
+        scale_x_date(date_breaks = "1 month", date_labels="%b") +
+        geom_point_interactive(aes(tooltip = paste(paste0("Last ",isolate(input$rolling)," Games up to ", Date), 
+                                                   Level, paste0(Roll_FB_dist, " ft. Est. FB Distance"), sep='\n'), 
+                                   data_id= Date, color=Level), size=1) +
+        geom_smooth(se=F, linetype=alphaLine) +
+        theme_smada()
+      gg <- girafe(print(g),width=1, width_svg = 12.5, height_svg = 6.25)
       girafe_options(gg, opts_zoom(max = 5),opts_hover(css = "fill:red;r:4pt;")) 
     }
   })
@@ -774,6 +869,20 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
              Roll_Oppo = round(as.numeric(rollmean(as.numeric(Oppo), isolate(input$rolling), fill=NA,align="right"))/
                                  as.numeric(rollmean(as.numeric(in_play), isolate(input$rolling), fill=NA,align="right")),3)
       )   
+    
+    FB_distance <- filteredTable_in_play() %>% 
+      filter(hit_trajectory=="fly_ball") %>% 
+      group_by(Date) %>% 
+      summarise(est_distance = mean(est_distance)) %>% 
+      mutate(Season = year(Date), Date2 = paste0("2017-",month(Date),"-",day(Date))) %>% 
+      left_join(FilteredGraphData, by = c("Date","Season","Date2")) %>% 
+      filter(!is.na(Level)) %>% 
+      mutate(Level = fct_relevel(Level,"(R)","(A-)","(A)","(A+)","(AA)","(AAA)","MLB"),
+             Roll_FB_dist = round(as.numeric(rollmean(as.numeric(est_distance), isolate(input$rolling), fill=NA,align="right")),0))  
+    
+    FB_distance_MiLB <- FB_distance %>% filter(Level != "MLB")
+    
+    metrics$MiLB_FB_dist <- mean(as.numeric(FB_distance_MiLB$est_distance),na.rm = T)
       
     if(input$playerlistchoice=="MLB"){
       player <- which(battersMLB$Name==input$playername)
@@ -792,6 +901,10 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
     FilteredGraphData <- FilteredGraphData %>% 
       filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
       filter(Season<=ifelse(yearupper=="",3000,yearupper))    
+    
+    FB_distance <- FB_distance %>% 
+      filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
+      filter(Season<=ifelse(yearupper=="",3000,yearupper))
     
     footerComment <- "-----------------------------------------------------------------------------------------------------------------------------------
 Data from Fangraphs.com & MLB.com, Pulled w/ help using Bill Petti's baseballr package
@@ -964,13 +1077,22 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
                           jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
       geom_vline(xintercept=metrics$MiLB_Oppo, linetype="dashed", alpha=alphaAvg)  +
       theme_smada() +
-      labs(x="Oppo", y="Season")+
+      labs(x="Oppo%", y="Season")+
       scale_x_continuous(labels = scales::percent) +
-      ggtitle(paste(isolate(input$playername),titlevar,"Oppo rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      ggtitle(paste(isolate(input$playername),titlevar,"Oppo% rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
+      labs(caption = footerComment)
+  } else if(input$metric == "Estimated FB Distance"){
+    ggplot(data=FB_distance, aes(x=Roll_FB_dist, y=as.factor(Season), fill=Level)) +
+      geom_density_ridges(stat=alphaLine, alpha=.4, scale=.9, aes(point_color=Level, point_fill=Level), 
+                          jittered_points=alphaPoint, scale=.9, quantile_lines=T, quantiles=2) +
+      geom_vline(xintercept=metrics$MiLB_FB_dist, linetype="dashed", alpha=alphaAvg)  +
+      theme_smada() +
+      labs(x="Est. FB Distance", y="Season")+
+      ggtitle(paste(isolate(input$playername),titlevar,"Est. FB Distance rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment)   
-    }
-    })
-    })  
-  })
+  }
+})
+})  
+})
     
 }
