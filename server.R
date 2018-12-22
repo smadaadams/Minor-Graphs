@@ -6,7 +6,7 @@ require(lubridate)
 require(zoo)
 require(ggridges)
 require(ggiraph)
-
+require(gghighlight)
 
 # Scrape MLB game logs for batters from Fangraphs (from baseballr package)
 batter_game_logs_fg <- function(playerid, year = 2017) {
@@ -158,6 +158,38 @@ theme_smada <- function(){
         legend.key.size = unit(1,"cm"),
         legend.box.background = element_rect(),
         legend.box.spacing = unit(1.5,"cm"),
+        legend.box.margin = margin(20, 20, 20, 20),
+        legend.justification = "top"
+  )
+}
+
+theme_spray <- function(){
+  theme(text = element_text("sans-serif"),
+        plot.title = element_text(size=20, vjust=5),
+        plot.subtitle = element_text(face="italic"),
+        plot.caption = element_text(color="#696969", hjust=0),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        panel.border = element_blank(), 
+        
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(), 
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        
+        axis.ticks.x = element_blank(),
+        axis.ticks.y = element_blank(),
+        
+        strip.text.x = element_text(size=12, face="bold"),
+        
+        legend.title = element_text(size=12, vjust = 7, face = "bold"),
+        legend.text = element_text(size=8),
+        legend.key.size = unit(1,"cm"),
+        legend.box.background = element_rect(),
+        legend.box.spacing = unit(1,"cm"),
         legend.box.margin = margin(20, 20, 20, 20),
         legend.justification = "top"
   )
@@ -1091,8 +1123,104 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       ggtitle(paste(isolate(input$playername),titlevar,"Est. FB Distance rolling",isolate(as.numeric(input$rolling)),"game samples"), subtitle = "Dashed Line = MiLB Career Average") +
       labs(caption = footerComment)   
   }
-})
-})  
-})
+  })
+  })  
+  })
+
+  output$Plot3 <- renderggiraph({
+    input$updatespray
     
+    #progress bar
+    withProgress(message = 'Creating Graph', style = "notification", value = 0.5, {
+      Sys.sleep(.25)
+        
+      isolate({
+      
+        Filtered_spray <- filteredTable_in_play() %>% mutate(Season = year(Date)) %>% 
+          mutate(play_result = if_else(is_hit_into_play_basehit == 1, "Hit", "Out"))
+        
+        yearlower <- input$yearlower
+        yearupper <- input$yearupper
+        Filtered_spray <- Filtered_spray %>% 
+          filter(Season>=ifelse(yearlower=="",0,yearlower)) %>% 
+          filter(Season<=ifelse(yearupper=="",3000,yearupper))
+        
+        yearstitle <- if (min(Filtered_spray$Season) == yearupper) yearupper
+                      else paste0(" (",min(Filtered_spray$Season)," - ",yearupper,")")
+        
+        if(input$highlight_result == "All"){
+          Filtered_spray <- Filtered_spray %>% mutate(dummy1 = 1)
+        } else {
+        Filtered_spray <- Filtered_spray %>%
+          mutate(dummy1 = if_else(event_and_next_event_type == input$highlight_result, 1, 0))
+        }
+
+        if(input$highlight_trajectory == "All"){
+          Filtered_spray <- Filtered_spray %>% mutate(dummy2 = 1)
+        } else {
+          Filtered_spray <- Filtered_spray %>%
+            mutate(dummy2 = if_else(hit_trajectory == input$highlight_trajectory, 1, 0))
+        }
+
+        if(input$highlight_pitch_hand == "All"){
+          Filtered_spray <- Filtered_spray %>% mutate(dummy3 = 1)
+        } else {
+          Filtered_spray <- Filtered_spray %>%
+            mutate(dummy3 = if_else(pitch_hand == input$highlight_pitch_hand, 1, 0))
+        }
+
+        if(input$highlight_balls == "All"){
+          Filtered_spray <- Filtered_spray %>% mutate(dummy4 = 1)
+        } else {
+          Filtered_spray <- Filtered_spray %>%
+            mutate(dummy4 = if_else(balls == as.numeric(input$highlight_balls), 1, 0))
+        }
+
+        if(input$highlight_strikes == "All"){
+          Filtered_spray <- Filtered_spray %>% mutate(dummy5 = 1)
+        } else {
+          Filtered_spray <- Filtered_spray %>%
+            mutate(dummy5 = if_else(strikes == as.numeric(input$highlight_strikes), 1, 0))
+        }
+
+        Filtered_spray <- Filtered_spray %>%
+          mutate(master_dummy = dummy1*dummy2*dummy3*dummy4*dummy5)
+        
+        Filtered_spray$color_by <- if (input$color_by == "Hit Trajectory") Filtered_spray$hit_trajectory 
+                    else if (input$color_by == "Play Result") Filtered_spray$play_result
+        
+        home_x <- 125
+        home_y <- 45
+        
+        spray_subtitle <- paste(
+          if (length(unique(Filtered_spray$master_dummy)) == 1) "Highlighted BIP: 100%" 
+            else paste0("Highlighted BIP: ", 
+                       round(100*sum(Filtered_spray$master_dummy)/length(Filtered_spray$master_dummy),1),"%"),
+          if (input$highlight_result == "All") "" else paste0("| ",input$highlight_result,"s"),
+          if (input$highlight_trajectory == "All") "" else paste0("| ",input$highlight_trajectory,"s"),
+          if (input$highlight_pitch_hand == "All") "" else paste0("| vs ",input$highlight_pitch_hand,"HPs"),
+          if (input$highlight_balls == "All") "" else paste0("| ",input$highlight_balls," balls"),
+          if (input$highlight_strikes == "All") "" else paste0("| ",input$highlight_strikes," strikes")
+        )
+        
+        g <- ggplot(data = Filtered_spray, aes(x=hc_x,y= 250 - hc_y)) + 
+          #geom_point(aes(color=hit_trajectory)) +
+          geom_point_interactive(aes(tooltip = paste(Date, 
+                                                     htmltools::htmlEscape(event_description, TRUE),
+                                                     paste0("vs. ", htmltools::htmlEscape(pitcher_name, TRUE)),
+                                                     paste0(round(est_distance,0)," ft. Est. Distance"),
+                                                     sep='\n'),
+                                     data_id=hc_x, color=color_by)) +
+          xlim(0,250) +
+          ylim(0,250) +
+          geom_segment(x=home_x, y=home_y, xend=home_x+175, yend=home_y+175) +
+          geom_segment(x=home_x, y=home_y, xend=home_x-175, yend=home_y+175) +
+          labs(x="", y="") +
+          gghighlight(master_dummy==1, use_direct_label = F, use_group_by=F) + 
+          ggtitle(paste(input$playername,"Spray Chart",yearstitle), subtitle=spray_subtitle) +
+          theme_spray()
+        girafe(print(g), width=1, width_svg = 7, height_svg = 5)
+      })
+    })
+  })  
 }

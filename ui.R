@@ -195,12 +195,62 @@ ui <- fluidPage(
            plotOutput("Plot2")
     )
   ),
+  tabPanel("Spray Chart",
+      fluidRow(
+           column(2,
+                  br(), 
+                  div(actionButton("updatespray","Update Spray Chart"),align="center"),
+                  br()
+           )
+           
+      ),
+      fluidRow(           
+        column(1,
+               br(),
+               div(h4("Color:"),align="center")
+           ),
+        column(2,
+               selectInput("color_by","", choices = list("Hit Trajectory", "Play Result"))
+        )
+      ),
+      fluidRow(
+           column(1,
+                  br(),
+                  div(h4("Highlight:"),align="center")
+           ),
+           column(2,
+                  selectInput("highlight_result", "Result", 
+                              choices = list("All","single", "double", "triple", "home_run", 
+                                             "field_out", "force_out", "grounded_into_double_play", "double_play", "field_error", "sac_fly", 
+                                             "sac_bunt", "fielders_choice", "fielders_choice_out"))
+           ),
+           column(2,
+                  selectInput("highlight_trajectory", "Hit Trajectory", 
+                                                                choices = list("All","ground_ball", "popup", "fly_ball", "line_drive"))
+           ),
+           column(2,
+                  selectInput("highlight_pitch_hand", "Pitcher Handedness", 
+                                                                choices = list("All","R","L"))
+           ),
+           column(2,
+                  selectInput("highlight_balls", "Balls (Count)", 
+                                                                choices = list("All","0","1","2","3"))
+           ),
+           column(2,
+                  selectInput("highlight_strikes", "Strikes (Count)", 
+                                                                choices = list("All","0","1","2"))
+           )
+      ),
+      fluidRow(
+        ggiraphOutput("Plot3", width = "1200px", height = "600px"),
+        br(), br(), br()
+      )
+  ),
   tabPanel("Fangraphs Page",
      column(12,
             br(),
             htmlOutput("frame")
            )
   )
- )
+ ) 
 )
-
