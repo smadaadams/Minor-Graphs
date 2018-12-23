@@ -174,7 +174,9 @@ ui <- fluidPage(
                       a("Github", href="https://github.com/smadaplaysfantasy/MiLB_Trend_Graphs/"),".",
                       br(),
                       "Data from ",
-                      a("Fangraphs,",href="https://fangraphs.com"),"pulled with help from Bill Petti's",
+                      a("Fangraphs,",href="https://fangraphs.com"),"and",
+                      a("MLB.com,",href="https://www.mlb.com/prospects/stats/search"),
+                      "pulled with help from Bill Petti's",
                       a("baseballr package", href="http://billpetti.github.io/baseballr/"),"."),br()#,
             # bookmarkButton()
       )
