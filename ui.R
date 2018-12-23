@@ -210,7 +210,7 @@ ui <- fluidPage(
                div(h4("Color:"),align="center")
            ),
         column(2,
-               selectInput("color_by","", choices = list("Hit Trajectory", "Play Result"))
+               selectInput("color_by","", choices = list("Hit Trajectory", "Play Result", "Hit Direction"))
         )
       ),
       fluidRow(

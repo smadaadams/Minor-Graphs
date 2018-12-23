@@ -97,8 +97,8 @@ milb_adv_scrape_game <- function(playerid){
            LD = if_else(hit_trajectory=="line_drive",1,0),
            PU = if_else(hit_trajectory=="popup",1,0),
            a = sqrt(250^2+(-250)^2),
-           b = sqrt((hc_x-(-125))^2+(hc_y-295)^2),
-           c = sqrt((hc_x-125)^2+(hc_y-45)^2),
+           b = sqrt(((250-hc_x)-(-125))^2+((250-hc_y)-295)^2),
+           c = sqrt(((250-hc_x)-125)^2+((250-hc_y)-45)^2),
            angle = 180-acos((b^2-a^2-c^2)/(2*a*c))*180/pi,
            Pull = if_else(angle<30 & bat_side=="R", 1, if_else(angle>=60 & bat_side=="L",1,0)),
            Center = if_else(angle<60 & angle>=30, 1, 0),
@@ -129,8 +129,8 @@ milb_adv_scrape_in_play <- function(playerid){
            LD = if_else(hit_trajectory=="line_drive",1,0),
            PU = if_else(hit_trajectory=="popup",1,0),
            a = sqrt(250^2+(-250)^2),
-           b = sqrt((hc_x-(-125))^2+(hc_y-295)^2),
-           c = sqrt((hc_x-125)^2+(hc_y-45)^2),
+           b = sqrt(((hc_x)-(-125))^2+((250-hc_y)-295)^2),
+           c = sqrt(((hc_x)-125)^2+((250-hc_y)-45)^2),
            angle = 180-acos((b^2-a^2-c^2)/(2*a*c))*180/pi,
            Pull = if_else(angle<30 & bat_side=="R", 1, if_else(angle>=60 & bat_side=="L",1,0)),
            Center = if_else(angle<60 & angle>=30, 1, 0),
@@ -370,7 +370,9 @@ server <- function(input, output, session) {
           batter_logs_in_play[player] <- list(as.data.frame(milb_adv_scrape_in_play(battersMLB$mlbid[player])))
         
           TempLogSavant <- as.data.frame((batter_logs_in_play[player])) %>% 
-            mutate(Date = as.Date(Date))
+            mutate(Date = as.Date(Date)) %>% 
+            mutate(BIP_direction = if_else (Oppo== 1, "oppo", 
+                                   if_else (Center==1, "center", "pull")))
           
           TempLogSavant
         }
@@ -382,7 +384,9 @@ server <- function(input, output, session) {
           batter_logs_in_play[player] <- list(as.data.frame(milb_adv_scrape_in_play(battersMiLB$mlbid[player])))
           
           TempLogSavant <- as.data.frame((batter_logs_in_play[player])) %>% 
-            mutate(Date = as.Date(Date))
+            mutate(Date = as.Date(Date)) %>% 
+            mutate(BIP_direction = if_else (Oppo== 1, "oppo", 
+                                   if_else (Center==1, "center", "pull")))
           
           TempLogSavant
         }
@@ -1181,13 +1185,15 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
         } else {
           Filtered_spray <- Filtered_spray %>%
             mutate(dummy5 = if_else(strikes == as.numeric(input$highlight_strikes), 1, 0))
-        }
+        } 
 
+        
         Filtered_spray <- Filtered_spray %>%
           mutate(master_dummy = dummy1*dummy2*dummy3*dummy4*dummy5)
         
         Filtered_spray$color_by <- if (input$color_by == "Hit Trajectory") Filtered_spray$hit_trajectory 
                     else if (input$color_by == "Play Result") Filtered_spray$play_result
+                    else if (input$color_by == "Hit Direction") Filtered_spray$BIP_direction
         
         home_x <- 125
         home_y <- 45
