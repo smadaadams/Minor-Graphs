@@ -82,7 +82,6 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   payload
 }  
 
-
 milb_adv_scrape_game <- function(playerid){
   
   vars1="pitcher_throws=&batter_stands=&game_date_gt=&game_date_lt=&home_away=&draft_year=&prospect=&player_type=batter&sort_by=results&sort_order=desc&group_by=name&min_results=&players="

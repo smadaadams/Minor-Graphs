@@ -92,8 +92,13 @@ batter_logs <- NULL
 batter_logs_mlb <- NULL
 
 ui <- fluidPage(
+  tags$a(href="https://www.prospectslive.com",img(src='prospectslive.jpg', align = "middle", width = "100%", height = "auto")),
   tags$head(
     tags$link(rel = "icon", type = "image/x-icon", href = "/www/favicon.ico"),
+    tags$style(
+      type="text/css",
+      "#image img {max-width: 100%; width: 100%; height: auto}"
+    ),
 
   HTML("
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -127,18 +132,12 @@ ui <- fluidPage(
        color: #EEE;
        text-align: center;
        </style>
-       <div id='titleBar1'>
-       <div id='container1'>
-
-       <a href='http://www.smadaplaysfantasy.com'><h1>Smada Plays Fantasy</h1></a>
-       </div>
-       </div>
        "
   ),
   br(),
   # Application title
-  titlePanel("MiLB to MLB Rolling Game Log Graphs"),
-
+  titlePanel("Minor Graphs by Prospects Live"),
+  br(),
   # well panel that holds all the selections
   wellPanel(
     fluidRow(
@@ -167,18 +166,6 @@ ui <- fluidPage(
              
              # button that creates the graphs
              actionButton("createGraph","Create Graph")
-      ),
-      column(4,
-             helpText("Created by ", a("@Smada_bb",href="https://twitter.com/smada_bb"),
-                      ", code availabe on ", 
-                      a("Github", href="https://github.com/smadaplaysfantasy/MiLB_Trend_Graphs/"),".",
-                      br(),
-                      "Data from ",
-                      a("Fangraphs,",href="https://fangraphs.com"),"and",
-                      a("MLB.com,",href="https://www.mlb.com/prospects/stats/search"),
-                      "pulled with help from Bill Petti's",
-                      a("baseballr package", href="http://billpetti.github.io/baseballr/"),"."),br()#,
-            # bookmarkButton()
       )
     )
   ),
