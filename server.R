@@ -214,7 +214,12 @@ batter_logs_MiLB <- NULL
 batter_logs_savant <- NULL
 batter_logs_in_play <- NULL
 
+#logo <- readPNG("www/prospectslivelogo.png")
+#logo <- rasterGrob(logo, interpolate=TRUE)
+
 server <- function(input, output, session) {
+  
+  #setBookmarkExclude(c("yearlower", "yearupper", ))
   
   metrics <-reactiveValues()
   playerselected <- reactive({input$playername})
@@ -407,13 +412,35 @@ server <- function(input, output, session) {
     }
   })
   
+  observe({ 
+    # FanGraphs Tab - find URL to iframe in
+    if(input$playerlistchoice=="MiLB"){
+      player <- which(battersMiLB$NameTeam==input$playername)
+      test2 <<- paste0("https://www.prospectslive.com/search?q=",
+                      battersMiLB$Name[player])
+    } else {
+      player <- which(battersMLB$NameTeam==input$playername)
+      test2 <<- paste0("https://www.prospectslive.com/search?q=",
+                      battersMLB$Name[player])
+    }
+  })
+  
   # create iframe for Fangraphs tab
-  output$frame <- renderUI({
+  output$FGframe <- renderUI({
     input$createGraph
     my_test <- tags$iframe(src=test, height=1200, width=1200)
     print(my_test)
     my_test
   })
+  
+  # create iframe for Prospects live tab
+  output$PLframe <- renderUI({
+    input$createGraph
+    my_test <- tags$iframe(src=test2, height=1200, width=1200)
+    print(my_test)
+    my_test
+  })
+  
   
   output$Plot1 <- renderggiraph({
     
@@ -564,6 +591,7 @@ Create graphs at SmadaPlaysFantasy.com/MiLB_Trend_Graphs, Twitter: @smada_bb"
       g <- ggplot(data=FilteredGraphData, aes(as.Date(Date2), Roll_wRC_plus)) +
         geom_line(aes(y=Roll_wRC_plus,group=Level, color=Level),size=1.5) + 
         ylim(0, NA) +
+        #annotation_custom(logo, xmin=as.Date("2017/04/01"), xmax=as.Date("2017/04/30"), ymin=1, ymax=50) +
         geom_point(aes(y=Roll_wRC_plus, group=Level, color=Level), size=2, alpha=alphaPoint) +
         geom_hline(yintercept=metrics$MiLB_wRC_plus, linetype="dashed", alpha=alphaAvg) + 
         facet_wrap(~Season) +

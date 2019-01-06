@@ -135,10 +135,14 @@ ui <- fluidPage(
        "
   ),
   br(),
+  br(),
   # Application title
   titlePanel("Minor Graphs by Prospects Live"),
   br(),
   # well panel that holds all the selections
+  tabsetPanel(type="tabs",
+  tabPanel(tags$h4("Hitters"),
+           br(),
   wellPanel(
     fluidRow(
       column(4,
@@ -165,10 +169,12 @@ ui <- fluidPage(
                                 selected = c(1,2,3), inline=T),
              
              # button that creates the graphs
+             #bookmarkButton(),
              actionButton("createGraph","Create Graph")
       )
     )
   ),
+  br(),
  # section for output  
  tabsetPanel(type="tabs",
   tabPanel("Trend",
@@ -238,8 +244,20 @@ ui <- fluidPage(
   tabPanel("Fangraphs Page",
      column(12,
             br(),
-            htmlOutput("frame")
+            htmlOutput("FGframe")
+           )
+  ),
+  tabPanel("Prospects Live Articles",
+           column(12,
+                  br(),
+                  htmlOutput("PLframe")
            )
   )
- ) 
+ )
+ ),
+ tabPanel(tags$h4("Pitchers"),
+    br(),
+    tags$h3("Pitcher graphs are coming soon!")
+ )
+ )
 )
