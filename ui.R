@@ -85,6 +85,13 @@ batters3 <- read.csv("data/milb_2018_batter_ids.csv",header =T)
 nameselect <- batters3 %>% mutate(NameTeam = as.character(paste0(Name," (",Team,")"))) %>% arrange(NameTeam) %>% select(NameTeam)
 nameselect <- as.list(nameselect)
 
+### Read in MLB/MiLB Batters from 2017/2018
+pitchers2 <- read.csv("data/mlb_2018_pitcher_ids.csv",header=T)
+pitchers3 <- read.csv("data/milb_2018_pitcher_ids.csv",header =T)
+### Create Names list to reference in drop down
+nameselectP <- pitchers3 %>% mutate(NameTeam = as.character(paste0(Name," (",Team,")"))) %>% arrange(NameTeam) %>% select(NameTeam)
+nameselectP <- as.list(nameselectP)
+
 year <- "all"
 game_rolling <- 15
 
@@ -92,14 +99,27 @@ batter_logs <- NULL
 batter_logs_mlb <- NULL
 
 ui <- fluidPage(
-  tags$a(href="https://www.prospectslive.com",img(src='prospectslive.jpg', align = "middle", width = "100%", height = "auto")),
+  #tags$a(href="https://www.prospectslive.com",img(src='prospectslive.jpg', align = "middle", width = "100%", height = "auto")),
   tags$head(
     tags$link(rel = "icon", type = "image/x-icon", href = "/www/favicon.ico"),
+    tags$script(src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.16/iframeResizer.contentWindow.min.js", 
+                type="text/javascript"),
     tags$style(
       type="text/css",
       "#image img {max-width: 100%; width: 100%; height: auto}"
     ),
-
+    tags$style(
+      paste0(
+        ".shiny-progress-notification{",
+        "  position:fixed !important;",
+        "  top: calc(0.5%) !important;",
+        "  left: calc(9%) !important;",
+        "  font-size: 15px !important;",
+        "  font-style: bold !important;",
+        "  width: 500px !important;",
+        "}"
+      )
+    ),
   HTML("
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src='https://www.googletagmanager.com/gtag/js?id=UA-119804730-1'></script>
@@ -134,11 +154,8 @@ ui <- fluidPage(
        </style>
        "
   ),
-  br(),
-  br(),
   # Application title
-  titlePanel("Minor Graphs by Prospects Live"),
-  br(),
+  #titlePanel("Minor Graphs by Prospects Live"),
   # well panel that holds all the selections
   tabsetPanel(type="tabs",
   tabPanel(tags$h4("Hitters"),
@@ -161,7 +178,7 @@ ui <- fluidPage(
                           "Games For Rolling Avg:",
                           min = 5, max=162, value = 30),
              # filter season text boxes
-             div(style="display:inline-block",textInput("yearlower","Filter Season Start:",value="")),
+             div(style="display:inline-block",textInput("yearlower","Filter Season Start:",value="2016")),
              div(style="display:inline-block",textInput("yearupper","Filter Season End:",value="2018")),
              # graph options check boxes
              checkboxGroupInput("graphControl", label = "Graph Options (Add/Remove)", 
@@ -170,7 +187,7 @@ ui <- fluidPage(
              
              # button that creates the graphs
              #bookmarkButton(),
-             actionButton("createGraph","Create Graph")
+             actionButton("createGraph",tags$h4(tags$b("Create Graph")))
       )
     )
   ),
@@ -178,23 +195,25 @@ ui <- fluidPage(
  # section for output  
  tabsetPanel(type="tabs",
   tabPanel("Trend",
-    column(12, 
-           br(),
-           # interactive output
-           ggiraphOutput("Plot1", width = "1200px", height = "600px")
-    )
+
+    column(12,
+       div(style="position:absolute; top:60px; left:163px; opacity: 1;", plotOutput("logo1")),
+   # interactive output
+       div(id='header',style="position:absolute; top:0px; topwidth:1000px;z-index: -1;",ggiraphOutput("Plot1", width = "1200px", height = "600px"))#,
+    )     
   ),
   tabPanel("Distribution",
     column(12,
            br(),
-           plotOutput("Plot2")
+           div(style="position:absolute; top:42px; left:143px; opacity: 1;", plotOutput("logo2")),
+           div(id='header',style="position:absolute; top:0px; topwidth:1000px;z-index: -1;", plotOutput("Plot2"))
     )
   ),
   tabPanel("Spray Chart",
       fluidRow(
            column(2,
                   br(), 
-                  div(actionButton("updatespray","Update Spray Chart"),align="center"),
+                  div(actionButton("updatespray",tags$h4(tags$b("Update Spray Chart"))),align="center"),
                   br()
            )
            
@@ -236,8 +255,9 @@ ui <- fluidPage(
                                                                 choices = list("All","0","1","2"))
            )
       ),
-      fluidRow(
-        ggiraphOutput("Plot3", width = "1200px", height = "600px"),
+      column(12,
+        div(style="position:absolute; top:80px; left:820px; opacity: 1;", plotOutput("logo3")),
+        div(id='header', style="position:absolute;z-index: -1;",ggiraphOutput("Plot3", width = "1200px", height = "600px")),
         br(), br(), br()
       )
   ),
@@ -256,8 +276,119 @@ ui <- fluidPage(
  )
  ),
  tabPanel(tags$h4("Pitchers"),
-    br(),
-    tags$h3("Pitcher graphs are coming soon!")
+  br(),
+  wellPanel(
+    fluidRow(
+      column(4,
+             radioButtons("playerlistchoiceP",
+                          "Select from either MiLB or MLB player pool:",
+                          choices = list("MiLB" = "MiLB","MLB" = "MLB"), inline = TRUE, selected = "MiLB"),
+             # Choose Player
+             selectInput("playernameP", "Player (delete & type)", choices = nameselectP$NameTeam, selected = "Forrest Whitley (Astros (AA))"),
+             # Choose Metric
+             selectInput("metricP", "Metric", choices = list(
+               "FIP","ERA","K%","BB%","K-BB%","K/9","BB/9","WHIP","BABIP","BA Against","IP/G", "GS%"
+             )),
+             # slider for number of games for rolling avg
+             sliderInput("rollingP",
+                         "Games For Rolling Avg:",
+                         min = 5, max=162, value = 10),
+             # filter season text boxes
+             div(style="display:inline-block",
+                 textInput("yearlowerP","Filter Season Start:",value="2016")),
+             div(style="display:inline-block",
+                 textInput("yearupperP","Filter Season End:",value="2018")),
+             # graph options check boxes
+             checkboxGroupInput("graphControlP", label = "Graph Options (Add/Remove)", 
+                                choices = list("Smoothed Line" = 1, "Points" = 2, "Career Avg" = 3),
+                                selected = c(1,2,3), inline=T),
+             
+             # button that creates the graphs
+             #bookmarkButton(),
+             actionButton("createGraphP",tags$h4(tags$b("Create Graph")))
+      )
+    )
+  ),
+  br(),
+  # section for output  
+  tabsetPanel(type="tabs",
+    tabPanel("Trend",
+       column(12, 
+              div(style="position:absolute; top:60px; left:163px; opacity: 1;", plotOutput("logo1P")),
+              # interactive output
+              div(id='header',style="position:absolute; top:0px; topwidth:1000px;z-index: -1;",ggiraphOutput("Plot1P", width = "1200px", height = "600px"))
+       )
+    ),
+    # tabPanel("Distribution",
+    #    column(12,
+    #           br(),
+    #           plotOutput("Plot2P")
+    #    )
+    # ),
+    # tabPanel("Spray Chart",
+    #          fluidRow(
+    #            column(2,
+    #                   br(), 
+    #                   div(actionButton("updatespray","Update Spray Chart"),align="center"),
+    #                   br()
+    #            )
+    #            
+    #          ),
+    #          fluidRow(           
+    #            column(1,
+    #                   br(),
+    #                   div(h4("Color:"),align="center")
+    #            ),
+    #            column(2,
+    #                   selectInput("color_by","", choices = list("Hit Trajectory", "Play Result", "Hit Direction"))
+    #            )
+    #          ),
+    #          fluidRow(
+    #            column(1,
+    #                   br(),
+    #                   div(h4("Highlight:"),align="center")
+    #            ),
+    #            column(2,
+    #                   selectInput("highlight_result", "Result", 
+    #                               choices = list("All","single", "double", "triple", "home_run", 
+    #                                              "field_out", "force_out", "grounded_into_double_play", "double_play", "field_error", "sac_fly", 
+    #                                              "sac_bunt", "fielders_choice", "fielders_choice_out"))
+    #            ),
+    #            column(2,
+    #                   selectInput("highlight_trajectory", "Hit Trajectory", 
+    #                               choices = list("All","ground_ball", "popup", "fly_ball", "line_drive"))
+    #            ),
+    #            column(2,
+    #                   selectInput("highlight_pitch_hand", "Pitcher Handedness", 
+    #                               choices = list("All","R","L"))
+    #            ),
+    #            column(2,
+    #                   selectInput("highlight_balls", "Balls (Count)", 
+    #                               choices = list("All","0","1","2","3"))
+    #            ),
+    #            column(2,
+    #                   selectInput("highlight_strikes", "Strikes (Count)", 
+    #                               choices = list("All","0","1","2"))
+    #            )
+    #          ),
+    #          fluidRow(
+    #            ggiraphOutput("Plot3", width = "1200px", height = "600px"),
+    #            br(), br(), br()
+    #          )
+    # ),
+    tabPanel("Fangraphs Page",
+             column(12,
+                    br(),
+                    htmlOutput("FGframeP")
+             )
+    ),
+    tabPanel("Prospects Live Articles",
+             column(12,
+                    br(),
+                    htmlOutput("PLframeP")
+             )
+    )
+  )
  )
- )
+ ),HTML('<div data-iframe-height></div>')
 )
