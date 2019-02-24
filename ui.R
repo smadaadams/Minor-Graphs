@@ -112,11 +112,11 @@ ui <- fluidPage(
       paste0(
         ".shiny-progress-notification{",
         "  position:fixed !important;",
-        "  top: calc(0.5%) !important;",
-        "  left: calc(9%) !important;",
+        "  top: calc(50%) !important;",
+        "  left: calc(25%) !important;",
         "  font-size: 15px !important;",
         "  font-style: bold !important;",
-        "  width: 500px !important;",
+        "  width: 600px !important;",
         "}"
       )
     ),
@@ -210,14 +210,6 @@ ui <- fluidPage(
     )
   ),
   tabPanel("Spray Chart",
-      fluidRow(
-           column(2,
-                  br(), 
-                  div(actionButton("updatespray",tags$h4(tags$b("Update Spray Chart"))),align="center"),
-                  br()
-           )
-           
-      ),
       fluidRow(           
         column(1,
                br(),
@@ -240,20 +232,55 @@ ui <- fluidPage(
            ),
            column(2,
                   selectInput("highlight_trajectory", "Hit Trajectory", 
-                                                                choices = list("All","ground_ball", "popup", "fly_ball", "line_drive"))
+                     choices = list("All","ground_ball", "popup", "fly_ball", "line_drive"))
            ),
            column(2,
                   selectInput("highlight_pitch_hand", "Pitcher Handedness", 
-                                                                choices = list("All","R","L"))
+                     choices = list("All","R","L"))
            ),
            column(2,
                   selectInput("highlight_balls", "Balls (Count)", 
-                                                                choices = list("All","0","1","2","3"))
+                     choices = list("All","0","1","2","3"))
            ),
            column(2,
                   selectInput("highlight_strikes", "Strikes (Count)", 
-                                                                choices = list("All","0","1","2"))
+                     choices = list("All","0","1","2"))
            )
+      ),
+      fluidRow(
+        column(1,
+               NULL
+        ),
+        column(2,
+               selectInput("highlight_direction", "Hit Direction", 
+                           choices = list("All","pull","center","oppo"))
+        ),
+        column(2,
+               selectInput("highlight_distance", "Distance >=", 
+                           choices = list("0","200","300","400"))
+        )
+      ),
+      fluidRow(
+        column(1,
+               br(),
+               div(h4("Options:"),align="center")
+        ),
+        column(2,
+               selectInput("HeatOverlay", "Heat Overlay", 
+                           choices = list("No","Yes"), "No")
+        ),
+        column(2,
+               selectInput("distancemarkers", "Distance Markers", 
+                           choices = list("No","Yes"), "No")
+        )
+      ),
+      fluidRow(
+        column(2,
+               br(), 
+               div(actionButton("updatespray",tags$h4(tags$b("Update Spray Chart"))),align="center"),
+               br()
+        )
+        
       ),
       column(12,
         div(style="position:absolute; top:80px; left:820px; opacity: 1;", plotOutput("logo3")),
@@ -261,12 +288,12 @@ ui <- fluidPage(
         br(), br(), br()
       )
   ),
-  tabPanel("Fangraphs Page",
-     column(12,
-            br(),
-            htmlOutput("FGframe")
-           )
-  ),
+  # tabPanel("Fangraphs Page",
+  #    column(12,
+  #           br(),
+  #           htmlOutput("FGframe")
+  #          )
+  # ),
   tabPanel("Prospects Live Articles",
            column(12,
                   br(),
@@ -287,7 +314,8 @@ ui <- fluidPage(
              selectInput("playernameP", "Player (delete & type)", choices = nameselectP$NameTeam, selected = "Forrest Whitley (Astros (AA))"),
              # Choose Metric
              selectInput("metricP", "Metric", choices = list(
-               "FIP","ERA","K%","BB%","K-BB%","K/9","BB/9","WHIP","BABIP","BA Against","IP/G", "GS%"
+               "FIP","ERA","K%","BB%","K-BB%","K/9","BB/9","WHIP","BABIP","BA Against","IP/G", "GS%",
+               "FB%", "GB%", "LD%", "PU%", "HR/FB", "Estimated FB Distance","Pull%", "Cent%", "Oppo%" 
              )),
              # slider for number of games for rolling avg
              sliderInput("rollingP",
@@ -376,12 +404,12 @@ ui <- fluidPage(
     #            br(), br(), br()
     #          )
     # ),
-    tabPanel("Fangraphs Page",
-             column(12,
-                    br(),
-                    htmlOutput("FGframeP")
-             )
-    ),
+    # tabPanel("Fangraphs Page",
+    #          column(12,
+    #                 br(),
+    #                 htmlOutput("FGframeP")
+    #          )
+    # ),
     tabPanel("Prospects Live Articles",
              column(12,
                     br(),

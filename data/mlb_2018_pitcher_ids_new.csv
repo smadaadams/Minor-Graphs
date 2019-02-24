@@ -1,0 +1,998 @@
+"","Name","Team","playerid","name_last","name_first","name_given","mlbid","birthday"
+"1","Jacob deGrom","Mets","10954","deGrom","Jacob","Jacob Anthony",594798,1988-06-19
+"2","Chris Sale","Red Sox","10603","Sale","Chris","Christopher",519242,1989-03-30
+"3","Corey Kluber","Indians","2429","Kluber","Corey","Corey Scott",446372,1986-04-10
+"4","Max Scherzer","Nationals","3137","Scherzer","Max","Maxwell M.",453286,1984-07-27
+"5","Justin Verlander","Astros","8700","Verlander","Justin","Justin Brooks",434378,1983-02-20
+"6","Patrick Corbin","Diamondbacks","9323","Corbin","Patrick","Patrick Alan",571578,1989-07-19
+"7","Gerrit Cole","Astros","13125","Cole","Gerrit","Gerrit Alan",543037,1990-09-08
+"8","Trevor Bauer","Indians","12703","Bauer","Trevor","Trevor Andrew",545333,1991-01-17
+"9","Luis Severino","Yankees","15890","Severino","Luis","Luis",622663,1994-02-20
+"10","Stephen Strasburg","Nationals","10131","Strasburg","Stephen","Stephen James",544931,1988-07-20
+"11","Aaron Nola","Phillies","16149","Nola","Aaron","Aaron Michael",605400,1993-06-04
+"12","Carlos Carrasco","Indians","6632","Carrasco","Carlos","Carlos Luis",471911,1987-03-21
+"13","Zack Greinke","Diamondbacks","1943","Greinke","Zack","Donald Zachary",425844,1983-10-21
+"14","Jimmy Nelson","Brewers","10547",NA,NA,NA,NA,NA
+"15","Clayton Kershaw","Dodgers","2036","Kershaw","Clayton","Clayton Edward",477132,1988-03-19
+"16","Blake Snell","Rays","13543","Snell","Blake","Blake Ashton",605483,1992-12-04
+"17","James Paxton","Mariners","11828","Paxton","James","James Alston",572020,1988-11-06
+"18","Chris Archer","Rays","6345","Archer","Chris","Christopher Alan",502042,1988-09-26
+"19","German Marquez","Rockies","15038","Marquez","German","German Andres",608566,1995-02-22
+"20","Mike Clevinger","Indians","12808","Clevinger","Mike","Michael Anthony",605182,1990-12-21
+"21","Miles Mikolas","Cardinals","9803","Mikolas","Miles","Miles Tice",571945,1988-08-23
+"22","Kyle Freeland","Rockies","16256","Freeland","Kyle","Kyle Richard",607536,1993-05-14
+"23","Noah Syndergaard","Mets","11762","Syndergaard","Noah","Noah Seth",592789,1992-08-29
+"24","Zack Wheeler","Mets","10310","Wheeler","Zach","Zachary Harrison",554430,1990-05-30
+"25","Mike Foltynewicz","Braves","10811","Foltynewicz","Mike","Michael Gary",592314,1991-10-07
+"26","Jose Quintana","- - -","11423","Quintana","Jose","Jose Guillermo",500779,1989-01-24
+"27","Jeff Samardzija","Giants","3254","Samardzija","Jeff","Jeffrey Alan",502188,1985-01-23
+"28","Jameson Taillon","Pirates","11674","Taillon","Jameson","Jameson Lee",592791,1991-11-18
+"29","Yu Darvish","- - -","13074","Darvish","Yu","Sefat Farid Yu",506433,1986-08-16
+"30","Dallas Keuchel","Astros","9434","Keuchel","Dallas","Dallas",572971,1988-01-01
+"31","Kenley Jansen","Dodgers","3096","Jansen","Kenley","Kenley Geronimo",445276,1987-09-30
+"32","Blake Treinen","Athletics","12572","Treinen","Blake","Blake M.",595014,1988-06-30
+"33","Marco Gonzales","Mariners","15467","Gonzales","Marco","Marco Elias",594835,1992-02-16
+"34","Zack Godley","Diamondbacks","14862","Godley","Zack","Zachary Thomas",643327,1990-04-21
+"35","Edwin Diaz","Mariners","14710","Diaz","Edwin","Edwin Orlando",621242,1994-03-22
+"36","Michael Fulmer","Tigers","13218","Fulmer","Michael","Michael Joseph",605242,1993-03-15
+"37","Alex Wood","Dodgers","13781","Wood","Alex","Robert Alexander",622072,1991-01-12
+"38","Danny Duffy","Royals","3542","Duffy","Danny","Daniel Richard",518633,1988-12-21
+"39","Gio Gonzalez","Nationals","7448","Gonzalez","Gio","Giovany Aramis",461829,1985-09-19
+"40","Brad Peacock","Astros","5401","Peacock","Brad","Bradley J.",502748,1988-02-02
+"41","Marcus Stroman","Blue Jays","13431","Stroman","Marcus","Marcus Earl",573186,1991-05-01
+"42","Carlos Martinez","Cardinals","11682","Martinez","Carlos","Carlos Ernesto",593372,1991-09-21
+"43","Craig Kimbrel","Red Sox","6655","Kimbrel","Craig","Craig Michael",518886,1988-05-28
+"44","Jose Berrios","Twins","14168","Berrios","Jose","Jose Orlando",621244,1994-05-27
+"45","Walker Buehler","Dodgers","19374","Buehler","Walker","Walker Anthony",621111,1994-07-28
+"46","Michael Wacha","Cardinals","14078","Wacha","Michael","Michael Joseph",608379,1991-07-01
+"47","Charlie Morton","Astros","4676","Morton","Charlie","Charles Alfred",450203,1983-11-12
+"48","Robbie Ray","Diamondbacks","11486","Ray","Robbie","Robert Glenn",592662,1991-10-01
+"49","Kyle Hendricks","Cubs","12049","Hendricks","Kyle","Kyle Christian",543294,1989-12-07
+"50","Drew Pomeranz","Red Sox","11426","Pomeranz","Drew","Thomas Andrew",519141,1988-11-22
+"51","J.A. Happ","- - -","7410","Happ","J. A.","James Anthony",457918,1982-10-19
+"52","Jon Gray","Rockies","14916","Gray","Jon","Jonathan Charles",592351,1991-11-05
+"53","Chase Anderson","Brewers","6895","Anderson","Chase","Robert Chase",502624,1987-11-30
+"54","Mike Leake","- - -","10130","Leake","Mike","Michael Raymond",502190,1987-11-12
+"55","Lance McCullers Jr.","Astros","14120","McCullers","Lance","Lance Graye",621121,1993-10-02
+"56","Roberto Osuna","Blue Jays","13764","Osuna","Roberto","Roberto",532077,1995-02-07
+"57","Ervin Santana","Twins","3200","Santana","Ervin","Ervin Ramon",429722,1982-12-12
+"58","Lance Lynn","- - -","2520","Lynn","Lance","Michael Lance",458681,1987-05-12
+"59","Sonny Gray","- - -","12768","Gray","Sonny","Sonny Douglas",543243,1989-11-07
+"60","Kyle Gibson","Twins","10123","Gibson","Kyle","Kyle Benjamin",502043,1987-10-23
+"61","Andrew Heaney","Angels","15423","Heaney","Andrew","Andrew M.",571760,1991-06-05
+"62","Masahiro Tanaka","Yankees","15764","Tanaka","Masahiro","Masahiro",547888,1988-11-01
+"63","Nick Pivetta","Phillies","15454","Pivetta","Nick","Nicholas Johncarlo",601713,1993-02-14
+"64","Jordan Montgomery","Yankees","16511","Montgomery","Jordan","Jordan Blackmon",656756,1992-12-27
+"65","Shane Bieber","Indians","19427","Bieber","Shane","Shane Robert",669456,1995-05-31
+"66","Rick Porcello","Red Sox","2717","Porcello","Rick","Frederick Alfred",519144,1988-12-27
+"67","Corey Knebel","Brewers","15010","Knebel","Corey","Corey Andrew",608349,1991-11-26
+"68","Josh Hader","Brewers","14212","Hader","Josh","Josh Ronald",623352,1994-04-07
+"69","Zach Davies","Brewers","13183","Davies","Zach","Zachary Ryan",605200,1993-02-07
+"70","David Price","Red Sox","3184","Price","David","David Taylor",456034,1985-08-26
+"71","Dylan Bundy","Orioles","12917","Bundy","Dylan","Dylan Matthew",605164,1992-11-15
+"72","Jon Lester","Cubs","4930","Lester","Jon","Jonathan Tyler",452657,1984-01-07
+"73","Vince Velasquez","Phillies","11189","Velasquez","Vince","Vincent John",592826,1992-06-07
+"74","Rich Hill","Dodgers","4806","Hill","Rich","Richard Joseph",448179,1980-03-11
+"75","Jhoulys Chacin","Brewers","2608","Chacin","Jhoulys","Jhoulys Jose",468504,1988-01-07
+"76","Kenta Maeda","Dodgers","18498","Maeda","Kenta","Kenta",628317,1988-04-11
+"77","Jake Odorizzi","Twins","6397","Odorizzi","Jake","Jacob Todd",543606,1990-03-27
+"78","Trevor Williams","Pirates","16977","Williams","Trevor","Trevor Anthony",592866,1992-04-25
+"79","Marco Estrada","Blue Jays","1118","Estrada","Marco","Marco Rene",462136,1983-07-05
+"80","Pat Neshek","- - -","4682","Neshek","Pat","Patrick John",450212,1980-09-04
+"81","Taijuan Walker","Diamondbacks","11836","Walker","Taijuan","Taijuan Emmanuel",592836,1992-08-13
+"82","Tanner Roark","Nationals","8753","Roark","Tanner","Tanner B.",543699,1986-10-05
+"83","Kevin Gausman","Orioles","14107","Gausman","Kevin","Kevin John",592332,1991-01-06
+"84","Jose Leclerc","Rangers","14524","Leclerc","Jose","Jose Ramon",600917,1993-12-19
+"85","CC Sabathia","Yankees","404","Sabathia","CC","Carsten Charles",282332,1980-07-21
+"86","Brad Keller","Royals","15734","Keller","Brad","Brad Michael",641745,1995-07-27
+"87","Chad Green","Yankees","15552","Green","Chad","Chad Keith",643338,1991-05-24
+"88","Anibal Sanchez","Braves","3284","Sanchez","Anibal","Anibal Alejandro",434671,1984-02-27
+"89","Jake Arrieta","Cubs","4153","Arrieta","Jake","Jacob Joseph",453562,1986-03-06
+"90","Tyler Skaggs","Angels","10190","Skaggs","Tyler","Tyler Wayne",572140,1991-07-13
+"91","Brandon McCarthy","Dodgers","4662","McCarthy","Brandon","Brandon Patrick",435221,1983-07-07
+"92","Clayton Richard","Padres","3551","Richard","Clayton","Clayton Colby",453385,1983-09-12
+"93","Andrew Miller","Indians","6785","Miller","Andrew","Andrew Mark",453192,1985-05-21
+"94","Jack Flaherty","Cardinals","17479","Flaherty","Jack","Jack Rafe",656427,1995-10-15
+"95","Eduardo Rodriguez","Red Sox","13164","Rodriguez","Eduardo","Eduardo Jose",593958,1993-04-07
+"96","Alex Cobb","Rays","6562","Cobb","Alex","Alexander Miller",502171,1987-10-07
+"97","Ross Stripling","Dodgers","13273","Stripling","Ross","Thomas Ross",548389,1989-11-23
+"98","Craig Stammen","Padres","7274","Stammen","Craig","Craig N.",489334,1984-03-09
+"99","Nathan Eovaldi","- - -","9132","Eovaldi","Nathan","Nathan Edward",543135,1990-02-13
+"100","Sean Manaea","Athletics","15873","Manaea","Sean","Sean Anthony",640455,1992-02-01
+"101","Danny Salazar","Indians","5867",NA,NA,NA,NA,NA
+"102","Yusmeiro Petit","Angels","4020","Petit","Yusmeiro","Yusmeiro Alberto",433589,1984-11-22
+"103","Zach Eflin","Phillies","13774","Eflin","Zach","Zachary Adams",621107,1994-04-08
+"104","Josh Tomlin","Indians","9388","Tomlin","Josh","Joshua Aubry",458708,1984-10-19
+"105","Mike Minor","Rangers","10021","Minor","Mike","Michael David",501985,1987-12-26
+"106","Anthony Swarzak","- - -","7466","Swarzak","Anthony","Anthony Ray",461872,1985-09-10
+"107","Jason Hammel","Royals","4538","Hammel","Jason","Jason Aaron",434628,1982-09-02
+"108","Felipe Vazquez","Pirates","12076","Vazquez","Felipe","Felipe Javier",553878,1991-07-05
+"109","Joe Musgrove","Pirates","12970","Musgrove","Joe","Joseph Anthony",605397,1992-12-04
+"110","Tommy Kahnle","- - -","11384","Kahnle","Tommy","Thomas Robert",592454,1989-08-07
+"111","Archie Bradley","Diamondbacks","12918","Bradley","Archie","Archie N.",605151,1992-08-10
+"112","Jaime Garcia","- - -","8137","Garcia","Jaime","Jaime Omar",448802,1986-07-08
+"113","Martin Perez","Rangers","6902","Perez","Martin","Martin",527048,1991-04-04
+"114","Derek Holland","Giants","4141","Holland","Derek","Derek Lane",502706,1986-10-09
+"115","Hyun-Jin Ryu","Dodgers","14444","Ryu","Hyun-Jin","Hyun-Jin",547943,1987-03-25
+"116","Matthew Boyd","Tigers","15440","Boyd","Matt","Matthew Robert",571510,1991-02-02
+"117","Andrew Cashner","Rangers","8782","Cashner","Andrew","Andrew Burton",488768,1986-09-11
+"118","Dan Straily","Marlins","9460","Straily","Dan","Daniel Steven",573185,1988-12-01
+"119","Adam Ottavino","Rockies","1247","Ottavino","Adam","Adam Robert",493603,1985-11-22
+"120","Jose Alvarado","Rays","17780","Alvarado","Jose","Jose Antonio",621237,1995-05-21
+"121","Reynaldo Lopez","White Sox","16400","Lopez","Reynaldo","Reynaldo Starling",625643,1994-01-04
+"122","Ivan Nova","Pirates","1994","Nova","Ivan","Ivan Manuel",467100,1987-01-12
+"123","Cole Hamels","- - -","4972","Hamels","Cole","Colbert Michael",430935,1983-12-27
+"124","Trevor Cahill","Athletics","6249","Cahill","Trevor","Trevor John",502239,1988-03-01
+"125","Will Smith","Giants","8048","Smith","Will","William Michael",519293,1989-07-10
+"126","Tyler Anderson","Rockies","12880","Anderson","Tyler","Tyler John",542881,1989-12-30
+"127","Ryan Madson","- - -","1852","Madson","Ryan","Ryan Michael",425492,1980-08-28
+"128","Chad Kuhl","Pirates","14975","Kuhl","Chad","Chad Michael",641771,1992-09-10
+"129","Clay Buchholz","Diamondbacks","3543","Buchholz","Clay","Clay Daniel",453329,1984-08-14
+"130","Aroldis Chapman","Yankees","10233","Chapman","Aroldis","Albertin Aroldis",547973,1988-02-28
+"131","Sean Newcomb","Braves","16943","Newcomb","Sean","Sean William",656794,1993-06-12
+"132","Luis Castillo","Reds","15689","Castillo","Luis","Luis Miguel",622491,1992-12-12
+"133","Taylor Rogers","Twins","13449","Rogers","Taylor","Taylor Allen",573124,1990-12-17
+"134","Sean Doolittle","Nationals","1581","Doolittle","Sean","Sean Robert",448281,1986-09-26
+"135","Ryan Pressly","- - -","7005","Pressly","Ryan","Thomas Ryan",519151,1988-12-15
+"136","David Robertson","- - -","8241","Robertson","David","David Alan",502085,1985-04-09
+"137","Joakim Soria","- - -","6941","Soria","Joakim","Joakim Agustin",465657,1984-05-18
+"138","Ken Giles","Astros","12910","Giles","Ken","Kenneth Robert",571704,1990-09-20
+"139","Jeremy Jeffress","Brewers","9490","Jeffress","Jeremy","Jeremy Ross",502026,1987-09-21
+"140","Dellin Betances","Yankees","6216","Betances","Dellin","Dellin",476454,1988-03-23
+"141","Joe Smith","- - -","3281","Smith","Joe","Joseph Michael",501925,1984-03-22
+"142","Jeurys Familia","- - -","5114","Familia","Jeurys","Jeurys",544727,1989-10-10
+"143","Raisel Iglesias","Reds","17130","Iglesias","Raisel","Raisel",628452,1990-01-04
+"144","Jerad Eickhoff","Phillies","12664","Eickhoff","Jerad","Jerad Joseph",595191,1990-07-02
+"145","Kirby Yates","Padres","9073","Yates","Kirby","Kirby Kali",489446,1987-03-25
+"146","Jose Urena","Marlins","11589","Urena","Jose","Jose Miguel",570632,1991-09-12
+"147","Nick Vincent","Mariners","7555","Vincent","Nick","Nicholas James",543883,1986-07-12
+"148","Tony Watson","Giants","3132","Watson","Tony","Anthony Michael",453265,1985-05-30
+"149","Ryan Borucki","Blue Jays","16350","Borucki","Ryan","Ryan Joseph",621366,1994-03-31
+"150","Dereck Rodriguez","Giants","14509","Rodriguez","Dereck","Ivan Dereck",605446,1992-06-05
+"151","Mychal Givens","Orioles","10430","Givens","Mychal","Mychal Antonio",571710,1990-05-13
+"152","Brad Hand","Padres","9111","Hand","Brad","Bradley Richard",543272,1990-03-20
+"153","Alex Claudio","Rangers","12890","Claudio","Alex","Alexander",592222,1992-01-31
+"154","Luis Perdomo","Padres","14682","Perdomo","Luis","Luis David",606131,1993-05-09
+"155","Seth Lugo","Mets","12447","Lugo","Seth","Jacob Seth",607625,1989-11-17
+"156","Madison Bumgarner","Giants","5524","Bumgarner","Madison","Madison Kyle",518516,1989-08-01
+"157","Wade LeBlanc","Mariners","5221","LeBlanc","Wade","Wade Matthew",453281,1984-08-07
+"158","Junior Guerra","Brewers","5702","Guerra","Junior","Junior J.",448855,1985-01-16
+"159","Robbie Erlin","Padres","10354","Erlin","Robbie","Robert Joseph",572362,1990-10-08
+"160","Brandon Morrow","Dodgers","9346","Morrow","Brandon","Brandon John",453344,1984-07-26
+"161","Blake Parker","Angels","5224","Parker","Blake","Richard Blake",453284,1985-06-19
+"162","Jason Vargas","Royals","8044","Vargas","Jason","Jason Matthew",450306,1983-02-02
+"163","Trevor Rosenthal","Cardinals","10745",NA,NA,NA,NA,NA
+"164","R.A. Dickey","Braves","1245",NA,NA,NA,NA,NA
+"165","Bryan Shaw","Indians","8110","Shaw","Bryan","Bryan Anthony",543766,1987-11-08
+"166","Brent Suter","Brewers","13942","Suter","Brent","Brent Michael",608718,1989-08-29
+"167","Dominic Leone","Blue Jays","13763","Leone","Dominic","Dominic Joseph",608678,1991-10-26
+"168","Adam Wainwright","Cardinals","2233","Wainwright","Adam","Adam Parrish",425794,1981-08-30
+"169","Cody Allen","Indians","12183","Allen","Cody","Cody Edward",592102,1988-11-20
+"170","Wade Miley","Brewers","8779","Miley","Wade","Wade Allen",489119,1986-11-13
+"171","Jake McGee","Rockies","7550","McGee","Jake","Jacob Daniel",459429,1986-08-06
+"172","Juan Nicasio","- - -","7731","Nicasio","Juan","Juan Ramon",504379,1986-08-31
+"173","Matt Harvey","- - -","11713","Harvey","Matt","Matthew Edward",518774,1989-03-27
+"174","A.J. Minter","Braves","18655","Minter","A. J.","Alex Jordan",621345,1993-09-02
+"175","Collin McHugh","Astros","7531","McHugh","Collin","Collin Alexander",543521,1987-06-19
+"176","Antonio Senzatela","Rockies","15488","Senzatela","Antonio","Antonio",622608,1995-01-21
+"177","Doug Fister","Red Sox","9425","Fister","Doug","Douglas Wildes",450729,1984-02-04
+"178","Mike Montgomery","Cubs","4869","Montgomery","Mike","Michael Paul",543557,1989-07-01
+"179","Luke Weaver","Cardinals","16918","Weaver","Luke","Luke Allen",596133,1993-08-21
+"180","Chris Devenski","Astros","12763","Devenski","Chris","Christopher Michael",606965,1990-11-13
+"181","Trevor Richards","Marlins","19309","Richards","Trevor","Trevor Michael",670950,1993-05-15
+"182","Joe Jimenez","Tigers","15761","Jimenez","Joe","Joe Alexander",641729,1995-01-17
+"183","Fernando Rodney","Diamondbacks","494","Rodney","Fernando","Fernando",407845,1977-03-18
+"184","Joe Biagini","Blue Jays","13194","Biagini","Joe","Joseph Carlo",607352,1990-05-29
+"185","Mike Fiers","- - -","7754","Fiers","Mike","Michael Bruce",571666,1985-06-15
+"186","Dinelson Lamet","Padres","17186",NA,NA,NA,NA,NA
+"187","Felix Pena","Angels","13403","Pena","Felix","Felix Ricardo",570240,1990-02-25
+"188","Hector Rondon","Astros","2391","Rondon","Hector","Hector Luis",444468,1988-02-26
+"189","Matt Barnes","Red Sox","12863","Barnes","Matt","Matthew D.",598264,1990-06-17
+"190","Miguel Gonzalez","- - -","7024","Gonzalez","Miguel","Miguel Angel",456068,1984-05-27
+"191","Sal Romano","Reds","13690","Romano","Sal","Salvatore J.",607219,1993-10-12
+"192","Seranthony Dominguez","Phillies","19249","Dominguez","Seranthony","Seranthony Ambioris",622554,1994-11-25
+"193","Scott Oberg","Rockies","13911","Oberg","Scott","Scott Michael",623184,1990-03-13
+"194","Jonathan Holder","Yankees","16588","Holder","Jonathan","Jonathan Blake",656547,1993-06-09
+"195","Jakob Junis","Royals","13619","Junis","Jakob","Jakob Benjamin Lee",596001,1992-09-16
+"196","Keone Kela","- - -","14696","Kela","Keone","Keone Cole",605309,1993-04-16
+"197","Jake Faria","Rays","13699","Faria","Jake","Jacob Daniel",607188,1993-07-30
+"198","Jaime Barria","Angels","18356","Barria","Jaime","Jaime Jonathan",642545,1996-07-18
+"199","Jesse Hahn","Athletics","13287","Hahn","Jesse","Jesse Allen",534910,1989-07-30
+"200","Richard Rodriguez","Pirates","13549","Rodriguez","Richard","Richard Agustin",593144,1990-03-04
+"201","Freddy Peralta","Brewers","18679","Peralta","Freddy","Freddy",642547,1996-06-04
+"202","Blaine Hardy","Tigers","6499","Hardy","Blaine","Blaine Patrick",543278,1987-03-14
+"203","Daniel Norris","Tigers","13475","Norris","Daniel","Daniel David",596057,1993-04-25
+"204","Jace Fry","White Sox","16159","Fry","Jace","Jace Hayden",605240,1993-07-09
+"205","Caleb Smith","Marlins","14875","Smith","Caleb","Caleb Anthony",592761,1991-07-28
+"206","Adam Warren","Yankees","9029","Warren","Adam","Adam Parrish",476589,1987-08-25
+"207","Ty Blach","Giants","14361","Blach","Ty","Tyson Michael",621389,1990-10-20
+"208","Randall Delgado","Diamondbacks","5985","Delgado","Randall","Randall Enrique",517414,1990-02-09
+"209","Jose Alvarez","Angels","5358","Alvarez","Jose","Jose Ricardo",501625,1989-05-06
+"210","Alex Colome","Rays","6661","Colome","Alex","Alexander Manuel",517008,1988-12-31
+"211","Johnny Cueto","Giants","6893","Cueto","Johnny","Johnny",456501,1986-02-15
+"212","Jesse Chavez","- - -","5448","Chavez","Jesse","Jesse David",445926,1983-08-21
+"213","Rafael Montero","Mets","12760",NA,NA,NA,NA,NA
+"214","Will Harris","Astros","3192","Harris","Will","William Taylor",501789,1984-08-28
+"215","Dan Winkler","Braves","12237","Winkler","Dan","Daniel Allen",595465,1990-02-02
+"216","Jeremy Hellickson","Nationals","4371","Hellickson","Jeremy","Jeremy Robert",476451,1987-04-08
+"217","Seung Hwan Oh","- - -","18719","Oh","Seunghwan","Seunghwan",493200,1982-07-15
+"218","Edubray Ramos","Phillies","16086","Ramos","Edubray","Edubray Eduar",591693,1992-12-19
+"219","Wei-Yin Chen","Marlins","13071","Chen","Wei-Yin","Wei-Yin",612672,1985-07-21
+"220","Luis Garcia","Phillies","6984","Garcia","Luis","Luis Amado",472610,1987-01-30
+"221","Jared Hughes","Reds","9325","Hughes","Jared","William Jared",453172,1985-07-04
+"222","Tommy Hunter","Rays","1157","Hunter","Tommy","Raymond Thomas",488984,1986-07-03
+"223","John Gant","Cardinals","13684","Gant","John","John Michael",607231,1992-08-06
+"224","Ryne Stanek","Rays","15947","Stanek","Ryne","Ryne Thomas",592773,1991-07-26
+"225","Kendall Graveman","Athletics","15514","Graveman","Kendall","Kendall Chase",608665,1990-12-21
+"226","Scott Alexander","Royals","10591","Alexander","Scott","Scott Alain",518397,1989-07-10
+"227","Yonny Chirinos","Rays","16401","Chirinos","Yonny","Yonny Enrique",630023,1993-12-26
+"228","Joey Lucchesi","Padres","19320","Lucchesi","Joey","Joseph George",664192,1993-06-06
+"229","Brad Brach","Orioles","6627","Brach","Brad","Brad",542960,1986-04-12
+"230","JC Ramirez","Angels","8302","Ramirez","J. C.","Juan Carlos",500724,1988-08-16
+"231","Dylan Covey","White Sox","14825","Covey","Dylan","Dylan Charles",592229,1991-08-14
+"232","Chris Rusin","Rockies","9895","Rusin","Chris","Christopher Patrick",543734,1986-10-22
+"233","Brett Cecil","Cardinals","2660","Cecil","Brett","Brett Aarion",446399,1986-07-02
+"234","Michael Pineda","Yankees","5372","Pineda","Michael","Michael Francisco",501381,1989-01-18
+"235","David Hernandez","- - -","4259","Hernandez","David","David Jose",456696,1985-05-13
+"236","Carl Edwards Jr.","Cubs","13607","Edwards","Carl","Carl Fleming",605218,1991-09-03
+"237","Tyler Chatwood","Rockies","4338","Chatwood","Tyler","Tyler Cole",543022,1989-12-16
+"238","Wade Davis","Cubs","7441","Davis","Wade","Wade Allen",451584,1985-09-07
+"239","Adalberto Mejia","Twins","13188","Mejia","Adalberto","Adalberto",606167,1993-06-20
+"240","Julio Teheran","Braves","6797","Teheran","Julio","Julio Alberto",527054,1991-01-27
+"241","Parker Bridwell","Angels","11502","Bridwell","Parker","Parker Alan",592170,1991-08-02
+"242","Greg Holland","Rockies","7196","Holland","Greg","Gregory Scott",518813,1985-11-20
+"243","Jeff Hoffman","Rockies","17432","Hoffman","Jeff","Jeffrey Robert",656546,1993-01-08
+"244","Erasmo Ramirez","- - -","10314","Ramirez","Erasmo","Erasmo Jose",541640,1990-05-02
+"245","Justin Wilson","- - -","4301","Wilson","Justin","Justin James",458677,1987-08-18
+"246","Oliver Perez","Indians","1514","Perez","Oliver","Oliver",424144,1981-08-15
+"247","Andrew Chafin","Diamondbacks","12988","Chafin","Andrew","Andrew Gregory",605177,1990-06-17
+"248","Shohei Ohtani","Angels","19755","Ohtani","Shohei","Shohei",660271,1994-07-05
+"249","Tyler Lyons","Cardinals","11334","Lyons","Tyler","Tyler William",544928,1988-02-21
+"250","Diego Castillo","Rays","17496","Castillo","Diego","Diego",650895,1994-01-18
+"251","Tyson Ross","- - -","7872","Ross","Tyson","Tyson William",475115,1987-04-22
+"252","Jordan Zimmermann","Tigers","4505","Zimmermann","Jordan","Jordan M.",519455,1986-05-23
+"253","Reyes Moronta","Giants","14966","Moronta","Reyes","Reyes Armando",606625,1993-01-06
+"254","Garrett Richards","Angels","9784","Richards","Garrett","Garrett Thomas",572070,1988-05-27
+"255","Hector Neris","Phillies","11804","Neris","Hector","Hector",593576,1989-06-14
+"256","Dylan Floro","- - -","13394","Floro","Dylan","Dylan Lee",571670,1990-12-27
+"257","Ryan Tepera","Blue Jays","10291","Tepera","Ryan","Dennis Ryan",572193,1987-11-03
+"258","Alex Meyer","Angels","12833",NA,NA,NA,NA,NA
+"259","Brandon Kintzler","- - -","9939","Kintzler","Brandon","Brandon Lee",445213,1984-08-01
+"260","Luiz Gohara","Braves","15166","Gohara","Luiz","Luiz Henrique",627894,1996-07-31
+"261","Andrew Suarez","Giants","18300","Suarez","Andrew","Andrew Jose",605498,1992-09-11
+"262","Liam Hendriks","Athletics","3548","Hendriks","Liam","Liam Johnson",521230,1989-02-10
+"263","Edinson Volquez","Marlins","3990",NA,NA,NA,NA,NA
+"264","Ian Kennedy","Royals","6986","Kennedy","Ian","Ian Patrick",453178,1984-12-19
+"265","Matt Moore","Giants","1890","Moore","Matt","Matthew Cody",519043,1989-06-18
+"266","Pedro Strop","Cubs","4070","Strop","Pedro","Pedro Angel",467008,1985-06-13
+"267","Kyle Crick","Pirates","13182","Crick","Kyle","Kyle Daniel",605195,1992-11-30
+"268","Roenis Elias","Mariners","12673","Elias","Roenis","Roenis",606273,1988-08-01
+"269","Addison Reed","- - -","10586","Reed","Addison","Addison Devon",592665,1988-12-27
+"270","Zach Duke","- - -","3840","Duke","Zach","Zachary Thomas",435043,1983-04-19
+"271","Jerry Blevins","Mets","7841","Blevins","Jerry","Jerry Richard",460283,1983-09-06
+"272","Domingo German","Yankees","17149","German","Domingo","Domingo",593334,1992-08-04
+"273","Tony Sipp","Astros","8280","Sipp","Tony","Tony Marcel",448609,1983-07-12
+"274","Frankie Montas","Athletics","14309","Montas","Frankie","Francelis",593423,1993-03-21
+"275","Jose Castillo","Padres","17169","Castillo","Jose","Jose Gregorio",620454,1996-01-10
+"276","Brett Anderson","Athletics","8223","Anderson","Brett","Brett Franklin",474463,1988-02-01
+"277","Matt Strahm","Padres","13799","Strahm","Matt","Matthew Scott",621381,1991-11-12
+"278","Matt Garza","Brewers","3340",NA,NA,NA,NA,NA
+"279","Matt Albers","Nationals","4300","Albers","Matt","Matthew James",458006,1983-01-20
+"280","Sam Gaviglio","Blue Jays","12778","Gaviglio","Sam","Samuel Joseph",543208,1990-05-22
+"281","Luis Avilan","- - -","2882","Avilan","Luis","Luis Armando",501593,1989-07-19
+"282","James Shields","White Sox","7059","Shields","James","James Anthony",448306,1981-12-20
+"283","Eric Lauer","Padres","19316","Lauer","Eric","Eric Lance",641778,1995-06-03
+"284","Emilio Pagan","Mariners","14771","Pagan","Emilio","Emilio Enrique",641941,1991-05-07
+"285","Pedro Baez","Dodgers","5420","Baez","Pedro","Pedro Alberys",520980,1988-03-11
+"286","Adam Kolarek","Rays","10843","Kolarek","Adam","Adam John",592473,1989-01-14
+"287","Darren O'Day","Orioles","3321","O'Day","Darren","Darren Christopher",503285,1982-10-22
+"288","Steve Cishek","Cubs","6483","Cishek","Steve","Steven R.",518553,1986-06-18
+"289","Austin Gomber","Cardinals","16561","Gomber","Austin","Austin Zachary",596295,1993-11-23
+"290","Trevor Hildenberger","Twins","17002","Hildenberger","Trevor","Trevor Sean",657610,1990-12-15
+"291","Richard Bleier","Orioles","7803","Bleier","Richard","Richard Sidney",542947,1987-04-16
+"292","Ricky Nolasco","Angels","3830",NA,NA,NA,NA,NA
+"293","Francisco Liriano","- - -","3201","Liriano","Francisco","Francisco Casillas",434538,1983-10-26
+"294","Victor Arano","Phillies","15915","Arano","Victor","Victor Teodoro",644364,1995-02-07
+"295","Hunter Strickland","Giants","7836","Strickland","Hunter","Hunter Drew",519326,1988-09-24
+"296","Ty Buttrey","Angels","14719","Buttrey","Ty","Ty Douglas",621142,1993-03-31
+"297","Steven Matz","Mets","13361","Matz","Steven","Steven Jakob",571927,1991-05-29
+"298","Adam Cimber","- - -","15288","Cimber","Adam","Adam Christian",643256,1990-08-15
+"299","Ryan Yarbrough","Rays","16502","Yarbrough","Ryan","Ryan Christian",642232,1991-12-31
+"300","Ben Lively","Phillies","14932","Lively","Ben","Edward Bennett",594902,1992-03-05
+"301","Brian Duensing","Cubs","4064","Duensing","Brian","Brian Matthew",488846,1983-02-22
+"302","Fernando Romero","Twins","15885","Romero","Fernando","Fernando Ernesto",622864,1994-12-24
+"303","Joe Kelly","Red Sox","9761","Kelly","Joe","Joseph William",523260,1988-06-09
+"304","Edwin Jackson","Athletics","1841","Jackson","Edwin","Edwin",429719,1983-09-09
+"305","Matt Bowman","Cardinals","13528","Bowman","Matthew","Matthew Chou",621199,1991-05-31
+"306","Tyler Glasnow","- - -","14374","Glasnow","Tyler","Tyler Allen",607192,1993-08-23
+"307","Tyler Duffey","Twins","13758","Duffey","Tyler","Tyler Blinn",608648,1990-12-27
+"308","Aaron Bummer","White Sox","16258","Bummer","Aaron","Aaron James",607481,1993-09-21
+"309","Arodys Vizcaino","Braves","5498","Vizcaino","Arodys","Arodys",527055,1990-11-13
+"310","Sam Freeman","Braves","6832","Freeman","Sam","Samuel Douglas",518693,1987-06-24
+"311","Nick Goody","Indians","13685","Goody","Nick","Nicholas Gunnar",580792,1991-07-06
+"312","Ryan Brasier","Red Sox","5615","Brasier","Ryan","Ryan David",518489,1987-08-26
+"313","Juan Minaya","White Sox","10341","Minaya","Juan","Juan Gustavo",573668,1990-09-18
+"314","Scott Feldman","Reds","6283",NA,NA,NA,NA,NA
+"315","Aaron Sanchez","Blue Jays","11490","Sanchez","Aaron","Aaron Jacob",592717,1992-07-01
+"316","Homer Bailey","Reds","8362","Bailey","Homer","David Dewitt",456701,1986-05-03
+"317","Carlos Rodon","White Sox","16137","Rodon","Carlos","Carlos Antonio",607074,1992-12-10
+"318","Blake Wood","- - -","1345","Wood","Blake","Blake Daniel",502028,1985-08-08
+"319","Odrisamer Despaigne","Marlins","16017","Despaigne","Odrisamer","Odrisamer",628333,1987-04-04
+"320","Brandon Maurer","- - -","4878","Maurer","Brandon","Brandon Eugene",543506,1990-07-03
+"321","Paul Fry","Orioles","15832","Fry","Paul","Paul Raymond",643316,1992-07-26
+"322","Cam Bedrosian","Angels","13360","Bedrosian","Cam","Cameron Rock",592135,1991-10-02
+"323","Bud Norris","Angels","9492","Norris","Bud","David Stefan",502032,1985-03-02
+"324","Chase Whitley","Rays","10982","Whitley","Chase","Chase Coleman",595032,1989-06-14
+"325","John Brebbia","Cardinals","12777","Brebbia","John","John Fulboam",605154,1990-05-30
+"326","Daniel Poncedeleon","Cardinals","16110","Ponce de Leon","Daniel","Daniel Robert",594965,1992-01-16
+"327","Robert Stock","Padres","6576","Stock","Robert","Robert Anthony",476594,1989-11-21
+"328","Jacob Barnes","Brewers","12323","Barnes","Jacob","Jacob Andrew",606930,1990-04-14
+"329","Matt Belisle","Twins","1837","Belisle","Matt","Matthew Thomas",279571,1980-06-06
+"330","Robert Gsellman","Mets","13696","Gsellman","Robert","Robert John",607229,1993-07-18
+"331","Matt Bush","Rangers","1246","Bush","Matt","Matthew Brian",456713,1986-02-08
+"332","Michael Soroka","Braves","18383","Soroka","Mike","Michael John Graydon",647336,1997-08-04
+"333","Lou Trivino","Athletics","15043","Trivino","Lou","Lou Albert",642152,1991-10-01
+"334","Shane Greene","Tigers","10756","Greene","Shane","Shane",572888,1988-11-17
+"335","Kyle Barraclough","Marlins","13713","Barraclough","Kyle","Kyle David",607457,1990-05-23
+"336","Andrew Triggs","Athletics","13533","Triggs","Andrew","Andrew Austin",592811,1989-03-16
+"337","Chris Stratton","Giants","13761","Stratton","Chris","Christopher Lee",608717,1990-08-22
+"338","Drew Steckenrider","Marlins","18806","Steckenrider","Drew","Andrew Paul",608716,1991-01-10
+"339","Matt Shoemaker","Angels","4776","Shoemaker","Matt","Matthew David",533167,1986-09-27
+"340","Michael Lorenzen","Reds","14843","Lorenzen","Michael","Michael Clifton",547179,1992-01-04
+"341","Tanner Scott","Orioles","17586","Scott","Tanner","Tanner Alexander",656945,1994-07-22
+"342","Bartolo Colon","- - -","375","Colon","Bartolo","Bartolo",112526,1973-05-24
+"343","Paul Sewald","Mets","13892","Sewald","Paul","Paul Stanton",623149,1990-05-26
+"344","Anthony DeSclafani","Reds","13050","DeSclafani","Anthony","Anthony James",543101,1990-04-18
+"345","Drew VerHagen","Tigers","13424","VerHagen","Drew","Drew Edward",572403,1990-10-22
+"346","Edgar Santana","Pirates","17355","Santana","Edgar","Edgar",650828,1991-10-16
+"347","Zach Britton","Orioles","3240","Britton","Zack","Zackary Grant",502154,1987-12-22
+"348","Ryan Buchter","Athletics","9456","Buchter","Ryan","Ryan James",488748,1987-02-13
+"349","Koda Glover","Nationals","17695","Glover","Koda","Koda James",606983,1993-04-13
+"350","David Phelps","- - -","6316",NA,NA,NA,NA,NA
+"351","Phil Maton","Padres","18064","Maton","Phil","Phillip Louis",664208,1993-03-25
+"352","Paul Blackburn","Athletics","14739","Blackburn","Paul","Paul Cady",621112,1993-12-04
+"353","Shane Carle","Braves","15258","Carle","Shane","Shane Taylor",641438,1991-08-30
+"354","Austin Pruitt","Rays","15290","Pruitt","Austin","Austin Daniel",643493,1989-08-31
+"355","Gregory Infante","White Sox","9119","Infante","Greg","Gregory Alexander",500872,1987-07-10
+"356","Daniel Mengden","Athletics","16980","Mengden","Daniel","Daniel Joseph",596043,1993-02-19
+"357","Jordan Lyles","- - -","7593","Lyles","Jordan","Jordan Horton",543475,1990-10-19
+"358","Eddie Butler","Cubs","13453","Butler","Eddie","Timothy Edward",572750,1991-03-13
+"359","Ryan Merritt","Indians","13688","Merritt","Ryan","Ryan Adam",607320,1992-02-21
+"360","Matt Grace","Nationals","11449","Grace","Matt","Matthew Aaron",594840,1988-12-14
+"361","Brandon Woodruff","Brewers","16162","Woodruff","Brandon","Brandon Kyle",605540,1993-02-10
+"362","Chris Bassitt","Athletics","12304","Bassitt","Chris","Christopher M.",605135,1989-02-22
+"363","Tony Cingrani","Dodgers","12555","Cingrani","Tony","Anthony Michael",571561,1989-07-05
+"364","Aaron Loup","Blue Jays","10343","Loup","Aaron","Aaron Christopher",571901,1987-12-19
+"365","Chris Martin","Rangers","11847","Martin","Chris","Christopher Riley",455119,1986-06-02
+"366","Koji Uehara","Cubs","9227","Uehara","Koji","Koji",493157,1975-04-03
+"367","Heath Hembree","Red Sox","11632","Hembree","Heath","Richard Heath",592390,1989-01-13
+"368","James Hoyt","Astros","14605","Hoyt","James","James Allen",624586,1986-09-30
+"369","Xavier Cedeno","- - -","36","Cedeno","Xavier","Xavier",458584,1986-08-26
+"370","Yoshihisa Hirano","Diamondbacks","19756","Hirano","Yoshihisa","Yoshihisa",673633,1984-03-08
+"371","Oliver Drake","- - -","8823","Drake","Oliver","Oliver Gardner",543118,1987-01-13
+"372","Tyler Olson","Indians","14741","Olson","Tyler","Tyler Ray",621397,1989-10-02
+"373","Jake Diekman","- - -","5003","Diekman","Jake","Jacob Tanner",518617,1987-01-21
+"374","Tyler Clippard","Blue Jays","5640","Clippard","Tyler","Tyler Lee",461325,1985-02-14
+"375","Trevor May","Twins","6398","May","Trevor","Trevor J.",543507,1989-09-23
+"376","Andrew Albers","Mariners","7853","Albers","Andrew","Andrew William",452027,1985-10-06
+"377","James Pazos","Mariners","13323","Pazos","James","James Manuel",572021,1991-05-05
+"378","Matt Andriese","Rays","12022","Andriese","Matt","Matthew Lee",542882,1989-08-28
+"379","Hector Velazquez","Red Sox","19341","Velazquez","Hector","Hector",584171,1988-11-26
+"380","Cody Reed","Reds","15232","Reed","Cody","Cody Austin",642003,1993-04-15
+"381","Anthony Banda","Diamondbacks","14706","Banda","Anthony","Frank Anthony",607455,1993-08-10
+"382","Tony Barnette","Rangers","3555","Barnette","Tony","Anthony Lee",501817,1983-11-09
+"383","Sam Dyson","Giants","11710","Dyson","Sam","Samuel Isaac",473879,1988-05-07
+"384","Brad Ziegler","Marlins","7293","Ziegler","Brad","Brad Gregory",446899,1979-10-10
+"385","Jordan Hicks","Cardinals","19618","Hicks","Jordan","Jordan McKinley",663855,1996-09-06
+"386","John Lackey","Cubs","1507",NA,NA,NA,NA,NA
+"387","Justin Anderson","Angels","16201","Anderson","Justin","Justin Charles",605121,1992-09-28
+"388","Heath Fillmyer","Royals","17466","Fillmyer","Heath","Heath Devon",641571,1994-05-16
+"389","Tim Hill","Royals","16814","Hill","Tim","Timothy",657612,1990-02-10
+"390","Spencer Turnbull","Tigers","16207","Turnbull","Spencer","Spencer Ketcham",605513,1992-09-18
+"391","Silvino Bracho","Diamondbacks","15051","Bracho","Silvino","Silvino",611093,1992-07-17
+"392","George Kontos","- - -","9486","Kontos","George","George Nicholas",502004,1985-06-12
+"393","Jonathan Loaisiga","Yankees","19753","Loaisiga","Jonathan","Jonathan Stanley",642528,1994-11-02
+"394","Dan Otero","Indians","7385","Otero","Dan","Daniel Anthony",519096,1985-02-19
+"395","Shelby Miller","Diamondbacks","10197","Miller","Shelby","Shelby Charles",571946,1990-10-10
+"396","Robert Stephenson","Reds","13594","Stephenson","Robert","Robert William",596112,1993-02-24
+"397","T.J. McFarland","Diamondbacks","3237","McFarland","T. J.","Timothy John",519008,1989-06-08
+"398","Shawn Kelley","- - -","7773","Kelley","Shawn","Shawn Andrew",518875,1984-04-26
+"399","Zach McAllister","Indians","2895","McAllister","Zach","Zachary Taylor",502083,1987-12-08
+"400","Sergio Romo","Rays","9817","Romo","Sergio","Sergio Francisco",489265,1983-03-04
+"401","Luis Cessa","Yankees","13345","Cessa","Luis","Luis Enrique",570666,1992-04-25
+"402","Mark Melancon","Giants","4264","Melancon","Mark","Mark D.",453343,1985-03-28
+"403","Wander Suero","Nationals","15855","Suero","Wander","Wander",593833,1991-09-15
+"404","Gabriel Ynoa","Orioles","12938","Ynoa","Gabriel","Gabriel",593679,1993-05-26
+"405","Touki Toussaint","Braves","16929","Toussaint","Touki","Dany Gilbert Kiti",657053,1996-06-20
+"406","Michael Feliz","Astros","11903","Feliz","Michael","Michael",593140,1993-06-28
+"407","Adam Conley","Marlins","14457","Conley","Adam","Adam Michael",543045,1990-05-24
+"408","Chad Bettis","Rockies","10587","Bettis","Chad","Chad Robert",518452,1989-04-26
+"409","Hunter Wood","Rays","15091","Wood","Hunter","Hunter Blake",621056,1993-08-12
+"410","Pablo Lopez","Marlins","17085","Lopez","Pablo","Pablo Jose",641154,1996-03-07
+"411","Joe Ross","Nationals","12972","Ross","Joe","Joseph Andrew",605452,1993-05-21
+"412","Alex Wilson","Tigers","9239","Wilson","Alex","William Alexander",543935,1986-11-03
+"413","Taylor Cole","Angels","11964","Cole","Taylor","Taylor James",518566,1989-08-20
+"414","Alec Mills","Cubs","13834","Mills","Alec","Alec Thomas",621219,1991-11-30
+"415","Max Fried","Braves","13743","Fried","Max","Max Dorian",608331,1994-01-18
+"416","Danny Farquhar","- - -","8501","Farquhar","Danny","Daniel Andres",543144,1987-02-17
+"417","Amir Garrett","Reds","14375","Garrett","Amir","Amir Jamal",607237,1992-05-03
+"418","Kohl Stewart","Twins","15502","Stewart","Kohl","Kohl Robert",640464,1994-10-07
+"419","Nathan Karns","Royals","12638",NA,NA,NA,NA,NA
+"420","Joshua James","Astros","16794","James","Josh","Joshua",657624,1993-03-08
+"421","Blaine Boyer","Red Sox","2237","Boyer","Blaine","Blaine Thomas",430641,1981-07-11
+"422","Wandy Peralta","Reds","14295","Peralta","Wandy","Wandy Luis",593974,1991-07-27
+"423","Kelvin Herrera","- - -","6033","Herrera","Kelvin","Kelvin De Jesus",516969,1989-12-31
+"424","Nick Wittgren","Marlins","15594","Wittgren","Nick","Nicholas James",621295,1991-05-29
+"425","Brian Johnson","Red Sox","14272","Johnson","Brian","Christopher Brian",598271,1990-12-07
+"426","Enny Romero","Nationals","4001","Romero","Enny","Enny Manuel",544836,1991-01-24
+"427","Felix Hernandez","Mariners","4772","Hernandez","Felix","Felix Abraham",433587,1986-04-08
+"428","Adam Morgan","Phillies","12580","Morgan","Adam","Adam Christopher",605388,1990-02-27
+"429","AJ Ramos","- - -","8350","Ramos","AJ","Alejandro",573109,1986-09-20
+"430","Tim Mayza","Blue Jays","15042","Mayza","Tim","Timothy Gerard",641835,1992-01-15
+"431","Josh Fields","Dodgers","5070","Fields","Josh","Joshua David",451661,1985-08-19
+"432","Fernando Abad","Red Sox","4994","Abad","Fernando","Fernando Antonio",472551,1985-12-17
+"433","Tony Zych","Mariners","12876",NA,NA,NA,NA,NA
+"434","Carlos Estevez","Rockies","14542","Estevez","Carlos","Carlos Samuel",608032,1992-12-28
+"435","Artie Lewicki","Tigers","16731","Lewicki","Artie","Arthur Michael",592499,1992-04-08
+"436","Peter Moylan","Royals","4891","Moylan","Peter","Peter Michael",493247,1978-12-02
+"437","Jimmie Sherfy","Diamondbacks","15118","Sherfy","Jimmie","James Harold",642073,1991-12-27
+"438","Tyler Mahle","Reds","16358","Mahle","Tyler","Tyler Fermin",641816,1994-09-29
+"439","Austin Maddox","Red Sox","14241","Maddox","Austin","Austin D.",545348,1991-05-13
+"440","Fernando Salas","- - -","4971","Salas","Fernando","Noel Fernando",477569,1985-05-30
+"441","Brad Boxberger","Rays","10133","Boxberger","Brad","Bradley George",502202,1988-05-27
+"442","Luke Jackson","Braves","11752","Jackson","Luke","Luke Ray",592426,1991-08-24
+"443","Jonny Venters","- - -","7175","Venters","Jonny","Jonathan William",458924,1985-03-20
+"444","Zach Putnam","White Sox","9080",NA,NA,NA,NA,NA
+"445","Boone Logan","Indians","5525","Logan","Boone","Boone",457429,1984-08-13
+"446","Dillon Gee","- - -","7396","Gee","Dillon","Dillon Kyle",518716,1986-04-28
+"447","Taylor Williams","Brewers","14899","Williams","Taylor","Taylor Grant",592865,1991-07-21
+"448","Buck Farmer","Tigers","14814","Farmer","Buck","George Runie",571656,1991-02-20
+"449","Lucas Giolito","White Sox","15474","Giolito","Lucas","Lucas Frost",608337,1994-07-14
+"450","Jarlin Garcia","Marlins","18282","Garcia","Jarlin","Jarlin Emmanuel",606424,1993-01-18
+"451","Caleb Ferguson","Dodgers","19349","Ferguson","Caleb","Caleb Paul",657571,1996-07-02
+"452","Cory Gearrin","Giants","7947","Gearrin","Cory","Cory Nathanial",518715,1986-04-14
+"453","Drew Anderson","Phillies","15130","Anderson","Drew","Andrew James",623454,1994-03-22
+"454","Erik Goeddel","- - -","11712","Goeddel","Erik","Erik Van Norman",592340,1988-12-20
+"455","Mike Mayers","Cardinals","15451","Mayers","Mike","Michael Christopher",594577,1991-12-06
+"456","Francis Martes","Astros","17303","Martes","Francis","Francis Euclides",642564,1995-11-24
+"457","Deck McGuire","Reds","11596","McGuire","Deck","William Deck",592547,1989-06-23
+"458","Bruce Rondon","Tigers","5766","Rondon","Bruce","Bruce",541652,1990-12-09
+"459","Al Alburquerque","- - -","6324","Alburquerque","Al","Alberto Jose",456379,1986-06-10
+"460","Steven Brault","Pirates","15291","Brault","Steven","Steven Joseph",643230,1992-04-29
+"461","Jeff Locke","Marlins","2929",NA,NA,NA,NA,NA
+"462","Steven Wright","Red Sox","8185","Wright","Steven","Steven Richard",453214,1984-08-30
+"463","Daniel Wright","Angels","15179","Wright","Daniel","Daniel Paul",642229,1991-04-03
+"464","Matt Cain","Giants","4732",NA,NA,NA,NA,NA
+"465","Jarred Cosart","Padres","10304",NA,NA,NA,NA,NA
+"466","Daniel Stumpf","Tigers","13780","Stumpf","Daniel","Daniel Arthur",621385,1991-01-04
+"467","Marcus Walden","Red Sox","8004","Walden","Marcus","Marcus Walter",519393,1988-09-13
+"468","Drew Smith","Mets","17755","Smith","Drew","Andrew David",622098,1993-09-24
+"469","Austin Davis","Phillies","17117","Davis","Austin","Austin Richard",656354,1993-02-03
+"470","Chris O'Grady","Marlins","13818","O'Grady","Chris","Christopher Ryan",622217,1990-04-17
+"471","Yency Almonte","Rockies","15068","Almonte","Yency","Yency",622075,1994-06-04
+"472","Sam Tuivailala","Cardinals","13485","Tuivailala","Sam","Samuel Johnathan",592815,1992-10-19
+"473","Jesse Biddle","Braves","11437","Biddle","Jesse","Jesse Thomas",592145,1991-10-22
+"474","John Axford","- - -","9059","Axford","John","John Berton",446099,1983-04-01
+"475","Edward Paredes","Dodgers","4168","Paredes","Edward","Edward Miguel",487675,1986-09-30
+"476","Josh Lindblom","Pirates","7882","Lindblom","Josh","Joshua William",458676,1987-06-15
+"477","Corbin Burnes","Brewers","19361","Burnes","Corbin","Corbin Brian",669203,1994-10-22
+"478","Glenn Sparkman","Royals","15200","Sparkman","Glenn","Glenn Michael",642098,1992-05-11
+"479","Anthony Bass","Cubs","7982","Bass","Anthony","Anthony Edward",542914,1987-11-01
+"480","Daniel Zamora","Mets","17811","Zamora","Daniel","Daniel James",623354,1993-04-15
+"481","Asher Wojciechowski","Reds","10836","Wojciechowski","Asher","Randall Asher",592879,1988-12-21
+"482","Jeanmar Gomez","White Sox","9033","Gomez","Jeanmar","Jeanmar Alejandro",491646,1988-02-10
+"483","Tommy Milone","Nationals","7608","Milone","Tommy","Tomaso Anthony",543548,1987-02-16
+"484","Ryan Dull","Athletics","13974","Dull","Ryan","Ryan Christopher",623430,1989-10-02
+"485","Kyle Crockett","Reds","15033","Crockett","Kyle","Kyle Richard",641490,1991-12-15
+"486","Chris Hatcher","- - -","3299","Hatcher","Chris","David Christopher",501822,1985-01-12
+"487","Ariel Jurado","Rangers","17030","Jurado","Ariel","Ariel Bolivar",642558,1996-01-30
+"488","Scott Barlow","Royals","14993","Barlow","Scott","Scott A.",605130,1992-12-18
+"489","Bryan Mitchell","Yankees","11479","Mitchell","Bryan","Bryan Bedford",571951,1991-04-19
+"490","Yefry Ramirez","Orioles","15655","Ramirez","Yefry","Yefry",606162,1993-11-28
+"491","Dillon Peters","Marlins","18790","Peters","Dillon","Dillon James",596071,1992-08-31
+"492","Chaz Roe","Rays","9866","Roe","Chaz","Chaz Daniel",475054,1986-10-09
+"493","Alec Asher","Orioles","13560","Asher","Alec","Alec Edward",594742,1991-10-04
+"494","Caleb Frare","White Sox","14353","Frare","Caleb","Caleb Michael",621350,1993-07-08
+"495","Jorge Lopez","- - -","14527","Lopez","Jorge","Jorge Yabiel",605347,1993-02-10
+"496","Chasen Shreve","Yankees","10855","Shreve","Chasen","Chasen Dean",592741,1990-07-12
+"497","Bobby Poyner","Red Sox","17987","Poyner","Bobby","Robert William",596074,1992-12-01
+"498","Chasen Bradford","Mets","12452","Bradford","Chase","Chasen David",607473,1989-08-05
+"499","Erick Fedde","Nationals","17425","Fedde","Erick","Erick James",607200,1993-02-25
+"500","Keynan Middleton","Angels","15264","Middleton","Keynan","Keynan Anthony",641871,1993-09-12
+"501","Dan Jennings","Brewers","8073","Jennings","Dan","Daniel Lee",543359,1987-04-17
+"502","Rex Brothers","Braves","9794","Brothers","Rex","Rex Colman",571521,1987-12-18
+"503","Sean Reid-Foley","Blue Jays","17034","Reid-Foley","Sean","Sean Ian",656887,1995-08-30
+"504","Roberto Gomez","Giants","12963","Gomez","Roberto","Roberto Ezequiel",596816,1989-08-03
+"505","Jim Johnson","Braves","3656","Johnson","Jim","James Robert",462382,1983-06-27
+"506","Thomas Pannone","Blue Jays","17281","Pannone","Thomas","Thomas Edward",623381,1994-04-28
+"507","Shawn Armstrong","Mariners","12857","Armstrong","Shawn","Shawn Michael",542888,1990-09-11
+"508","Ben Heller","Yankees","15100",NA,NA,NA,NA,NA
+"509","Aaron Wilkerson","Brewers","16904","Wilkerson","Aaron","Aaron Daniel",658792,1989-05-24
+"510","Giovanny Gallegos","Yankees","14986","Gallegos","Giovanny","Giovanny",606149,1991-08-14
+"511","J.B. Wendelken","Athletics","14506","Wendelken","J. B.","Jeffrey Benjamin",605525,1993-03-24
+"512","Kevin McCarthy","Royals","15240","McCarthy","Kevin","Kevin Edward",641838,1992-02-22
+"513","Miguel Diaz","Padres","18815","Diaz","Miguel","Miguel Angel",622766,1994-11-28
+"514","Danny Barnes","Blue Jays","11388","Barnes","Danny","Daniel J.",592130,1989-10-21
+"515","Carson Smith","Red Sox","13172","Smith","Carson","Carson Donald",605476,1989-10-19
+"516","Jeffrey Springs","Rangers","17677","Springs","Jeffrey","Jeffrey Scott",605488,1992-09-20
+"517","Lucas Sims","Braves","13470","Sims","Lucas","Lucas Sundberg",608371,1994-05-10
+"518","Jamie Callahan","Mets","14711","Callahan","Jamie","James Douglas",621094,1994-08-24
+"519","Nate Jones","White Sox","4696","Jones","Nate","Nathan Andrew",518858,1986-01-28
+"520","Sandy Alcantara","Marlins","18684","Alcantara","Sandy","Sandy",645261,1995-09-07
+"521","D.J. Johnson","Rockies","12578","Johnson","DJ","Daniel Stuart",597113,1989-08-30
+"522","David Paulino","Astros","17418","Paulino","David","David Confesor",600944,1994-02-06
+"523","Trevor Oaks","Royals","16468","Oaks","Trevor","Trevor Scott",656805,1993-03-26
+"524","Brad Wieck","Padres","16390","Wieck","Brad","Bradley Michael",623364,1991-10-14
+"525","James Norwood","Cubs","16440","Norwood","James","James K.",656803,1993-12-24
+"526","Julio Urias","Dodgers","14765","Urias","Julio","Julio Cesar",628711,1996-08-12
+"527","Mike Dunn","Rockies","9948","Dunn","Mike","Michael Glen",445197,1985-05-23
+"528","Jumbo Diaz","Rays","3397","Diaz","Jumbo","Jose Rafael",471822,1984-02-27
+"529","Stephen Tarpley","Yankees","15859","Tarpley","Stephen","Stephen Nicholas",605501,1993-02-17
+"530","Joaquin Benoit","- - -","1437",NA,NA,NA,NA,NA
+"531","Drew Rucinski","Marlins","12499","Rucinski","Drew","Andrew James",607968,1988-12-30
+"532","Kyle McGrath","Padres","16793","McGrath","Kyle","Kyle Daniel",657681,1992-07-31
+"533","Alan Busenitz","Twins","15239","Busenitz","Alan","Alan Paul",641427,1990-08-22
+"534","Mike Morin","Mariners","13442","Morin","Mike","Michael William",573046,1991-05-03
+"535","Casey Kelly","Giants","9174","Kelly","Casey","Casey Patrick",543391,1989-10-04
+"536","Eric Skoglund","Royals","16155","Skoglund","Eric","Eric L.",607215,1992-10-26
+"537","Phil Hughes","Twins","7450","Hughes","Phil","Philip Joseph",461833,1986-06-24
+"538","Daniel Coulombe","Athletics","13293","Coulombe","Danny","Daniel Paul",543056,1989-10-26
+"539","A.J. Schugel","Pirates","11432","Schugel","A. J.","Andrew Jeffrey",519263,1989-06-27
+"540","Austin Bibens-Dirkx","Rangers","9559","Bibens-Dirkx","Austin","Austin M.",502212,1985-04-29
+"541","Akeel Morris","Braves","12185","Morris","Akeel","Akeel J.",592570,1992-11-14
+"542","Evan Marshall","Indians","12297","Marshall","Evan","Evan Patrick",605359,1990-04-18
+"543","Ricardo Rodriguez","Rangers","15458","Rodriguez","Ricardo","Ricardo Jose",600965,1992-08-31
+"544","Yovani Gallardo","- - -","8173","Gallardo","Yovani","Yovani",451596,1986-02-27
+"545","Dakota Hudson","Cardinals","19206","Hudson","Dakota","Dakota Ryan",641712,1994-09-15
+"546","Bobby Wahl","Athletics","14832","Wahl","Bobby","Robert Martin",592833,1992-03-21
+"547","Gabriel Moya","Twins","16348","Moya","Gabriel","Gabriel Jose",622382,1995-01-09
+"548","C.D. Pelham","Rangers","19820","Pelham","C. D.","Christian Devont'a",641962,1995-02-21
+"549","Matt Wisler","- - -","12804","Wisler","Matt","Matthew Robert",605538,1992-09-12
+"550","Albert Suarez","Giants","6175","Suarez","Albert","Albert Joe",544150,1989-10-08
+"551","Donnie Hart","Orioles","15306","Hart","Donnie","Donnie Scott",643354,1990-09-06
+"552","Vance Worley","Marlins","6435","Worley","Vance","Vance Richard",474699,1987-09-25
+"553","Brandon Finnegan","Reds","16208","Finnegan","Brandon","Brandon Kyle",605232,1993-04-14
+"554","Framber Valdez","Astros","17295","Valdez","Framber","Framber",664285,1993-11-19
+"555","Mark Leiter","Phillies","15551","Leiter","Mark","Mark Edward",643410,1991-03-13
+"556","Colten Brewer","Padres","12997","Brewer","Colten","Colten B.",605155,1992-10-29
+"557","Noe Ramirez","- - -","12800","Ramirez","Noe","Noe",598287,1989-12-22
+"558","Matthew Festa","Mariners","19330","Festa","Matt","Matthew",670036,1993-03-11
+"559","JT Chargois","Dodgers","13767","Chargois","J. T.","Jon Thomas",608638,1990-12-03
+"560","Daniel Hudson","Pirates","7146","Hudson","Daniel","Daniel Claiborne",543339,1987-03-09
+"561","Javy Guerra","Marlins","7407","Guerra","Javy","Luis Javier",457915,1985-10-31
+"562","Steven Okert","Giants","13580","Okert","Steven","Steven Chandler",595345,1991-07-09
+"563","Eduardo Paredes","Angels","16344","Paredes","Eduardo","Eduardo Jose",622161,1995-03-06
+"564","A.J. Cole","Nationals","11467","Cole","A. J.","Andrew Jordan",595918,1992-01-05
+"565","Hoby Milner","Phillies","13346","Milner","Hoby","Hoby Trey",571948,1991-01-13
+"566","Chase De Jong","Twins","15036","De Jong","Chase","Chase Louis",608328,1993-12-29
+"567","Adrian Houser","Brewers","12718","Houser","Adrian","Adrian David",605288,1993-02-02
+"568","Santiago Casilla","Athletics","2873","Casilla","Santiago","Santiago",433586,1980-07-25
+"569","Ernesto Frieri","Rangers","5178","Frieri","Ernesto","Ernesto",457117,1985-07-19
+"570","Ryan Weber","Mariners","10160","Weber","Ryan","James Ryan",543901,1990-08-12
+"571","Ariel Miranda","Mariners","17526","Miranda","Ariel","Ariel",664641,1989-01-10
+"572","Miguel Socolovich","Braves","6697","Socolovich","Miguel","Miguel Angel",462515,1986-07-24
+"573","Bryse Wilson","Braves","19990","Wilson","Bryse","Bryse Everett",669060,1997-12-20
+"574","Kyle Kendrick","Red Sox","6230",NA,NA,NA,NA,NA
+"575","Josh Smith","Athletics","10946","Smith","Josh","Joshua Allen",595001,1987-08-07
+"576","Robbie Ross Jr.","Red Sox","6819","Ross","Robbie","Robert Charles",543726,1989-06-24
+"577","Carlos Ramirez","Blue Jays","11743","Ramirez","Carlos","Carlos Alejandro",570702,1991-04-24
+"578","Rowan Wick","Padres","14646","Wick","Rowan","Rowan D.",592858,1992-11-09
+"579","Dillon Maples","Cubs","14672","Maples","Dillon","Dillon Sean",596027,1992-05-09
+"580","Nick Martinez","Rangers","12730","Martinez","Nick","Nicholas Andres",607259,1990-08-05
+"581","Louis Coleman","Tigers","9720","Coleman","Louis","Harold Louis",488786,1986-04-04
+"582","John Curtiss","Twins","16128","Curtiss","John","John Pickens",595928,1993-04-05
+"583","Nick Gardewine","Rangers","16513","Gardewine","Nick","Nick",643320,1993-08-15
+"584","Pat Venditte","Dodgers","7108","Venditte","Pat","Patrick Michael",519381,1985-06-30
+"585","Kevin Shackelford","Reds","11012","Shackelford","Kevin","Kevin Russell",594992,1989-04-07
+"586","Dario Alvarez","Rangers","14239","Alvarez","Dario","Dario Rafael",516714,1989-01-17
+"587","Chih-Wei Hu","Rays","16419","Hu","Chih-Wei","Chih-Wei",629496,1993-11-04
+"588","Jack Leathersich","- - -","12562","Leathersich","Jack","John Victor",605333,1990-07-14
+"589","Zac Rosscup","- - -","9419","Rosscup","Zac","Zachary M.",573127,1988-06-09
+"590","Cory Mazzoni","Cubs","12537","Mazzoni","Cory","Cory Mitchell",543508,1989-10-19
+"591","Huston Street","Angels","8258",NA,NA,NA,NA,NA
+"592","Ryan Sherriff","Cardinals","12249","Sherriff","Ryan","Ryan Sebastian",595411,1990-05-25
+"593","Adam Liberatore","Dodgers","10637","Liberatore","Adam","Adam Joseph",571893,1987-05-12
+"594","Kris Medlen","Diamondbacks","9417","Medlen","Kris","Kristopher Allen",450665,1985-10-07
+"595","Andrew Bailey","Angels","1368",NA,NA,NA,NA,NA
+"596","Ubaldo Jimenez","Orioles","3374",NA,NA,NA,NA,NA
+"597","Kevin Siegrist","- - -","8180",NA,NA,NA,NA,NA
+"598","Tyler Beede","Giants","16981","Beede","Tyler","Tyler Joseph",595881,1993-05-23
+"599","Bryan Morris","Giants","10234",NA,NA,NA,NA,NA
+"600","Dennis Santana","Dodgers","17878","Santana","Dennis","Dennis Anfernee",642701,1996-04-12
+"601","Tyler Danish","White Sox","15126","Danish","Tyler","Tyler Michael",641501,1994-09-12
+"602","Enyel De Los Santos","Phillies","18403","De Los Santos","Enyel","Enyel",660853,1995-12-25
+"603","Mike Hauschild","Blue Jays","14033","Hauschild","Mike","Michael",623434,1990-01-22
+"604","Preston Claiborne","Rangers","10500","Claiborne","Preston","Preston Michael",502011,1988-01-21
+"605","Scott Copeland","Mets","10706","Copeland","Scott","Scott Reast",571577,1987-12-15
+"606","Rhiner Cruz","Blue Jays","711","Cruz","Rhiner","Rhiner Allen",462480,1986-11-01
+"607","Tanner Scheppers","Rangers","10267","Scheppers","Tanner","Tanner Ross",489294,1987-01-17
+"608","Andrew Vasquez","Twins","19482","Vasquez","Andrew","Andrew Jude",607755,1993-09-14
+"609","Dayan Diaz","Astros","11543","Diaz","Dayan","Dayan Enrique",500765,1989-02-10
+"610","Chad Sobotka","Braves","17470","Sobotka","Chad","Chad Nicholas",656977,1993-07-10
+"611","Victor Alcantara","Tigers","15028","Alcantara","Victor","Victor Alfonso",622505,1993-04-03
+"612","Adam McCreery","Braves","19550","McCreery","Adam","Adam Glenn",607030,1992-12-31
+"613","Tyler Cloyd","Mariners","8536","Cloyd","Tyler","Tyler James",543031,1987-05-16
+"614","Yoan Lopez","Diamondbacks","17181","Lopez","Yoan","Yoan",661255,1993-01-02
+"615","Brandon Workman","Red Sox","11428","Workman","Brandon","Brandon Carlin",519443,1988-08-13
+"616","Reymin Guduan","Astros","13058","Guduan","Reymin","Reymin Yojairo",594056,1992-03-16
+"617","Brandon Dixon","Reds","15214","Dixon","Brandon","Brandon Allen",641525,1992-01-29
+"618","Andrew Kittredge","Rays","12828","Kittredge","Andrew","Andrew Michael",552640,1990-03-17
+"619","Chad Bell","Tigers","10297","Bell","Chad","Chadwick Micah",518445,1989-02-28
+"620","Mike Wright","Orioles","12586","Wright","Mike","Dennis Michael",605541,1990-01-03
+"621","Alex Blandino","Reds","16271","Blandino","Alex","Alessandre",607468,1992-11-06
+"622","J.D. Davis","Astros","16219","Davis","J. D.","Jonathan Gregory",605204,1993-04-27
+"623","Braden Shipley","Diamondbacks","15158","Shipley","Braden","Braden Alec",640463,1992-02-22
+"624","Fabio Castillo","Dodgers","2826","Castillo","Fabio","Fabio",503566,1989-02-19
+"625","Brooks Pounders","Rockies","10387","Pounders","Brooks","Brooks Casey",572044,1990-09-26
+"626","Pierce Johnson","Cubs","13435","Johnson","Pierce","Pierce William",572955,1991-05-10
+"627","Ian Krol","Angels","10066","Krol","Ian","Ian A.",571871,1991-05-09
+"628","Yohander Mendez","Rangers","14391","Mendez","Yohander","Yohander Manuel",622795,1995-01-17
+"629","Alex Reyes","Cardinals","15015","Reyes","Alex","Alexander",621052,1994-08-29
+"630","Matt Davidson","White Sox","7226","Davidson","Matt","Matthew Glen",571602,1991-03-26
+"631","Pedro Beato","Phillies","1330","Beato","Pedro","Pedro",474039,1986-10-27
+"632","Andrew Moore","Mariners","17553","Moore","Andrew","Andrew George",621058,1994-06-02
+"633","Erik Kratz","Brewers","4403","Kratz","Erik","Erik Floyd",456124,1980-06-15
+"634","Jorge De La Rosa","- - -","2047","De La Rosa","Jorge","Jorge Alberto",407822,1981-04-05
+"635","T.J. House","Blue Jays","9121","House","T. J.","Glenn Anthony",543334,1989-09-29
+"636","Ashur Tolliver","Astros","10044","Tolliver","Ashur","Ashur Jordan",572208,1988-01-24
+"637","Jesus Sucre","Rays","5942","Sucre","Jesus","Jesus Marcelo",491696,1988-04-30
+"638","Brett Nicholas","Rangers","11192","Nicholas","Brett","Brett James",592592,1988-07-18
+"639","Ryan Rua","Rangers","12409","Rua","Ryan","Ryan Anthony",607387,1990-03-11
+"640","Mitch Moreland","Red Sox","3086","Moreland","Mitch","Mitchell Austin",519048,1985-09-06
+"641","Jon Jay","Cubs","5227","Jay","Jon","Jonathan Henry",445055,1985-03-15
+"642","Thyago Vieira","Mariners","14510","Vieira","Thyago","Thyago da Silva",600986,1993-07-01
+"643","Dan Slania","Giants","15639","Slania","Dan","Daniel Alexander",592753,1992-05-24
+"644","Ray Black","Giants","14244","Black","Ray","Raymond Anthony",605143,1990-06-26
+"645","Brian Flynn","Royals","12027","Flynn","Brian","Brian A.",543169,1990-04-19
+"646","A.J. Griffin","Rangers","11132","Griffin","A. J.","Arthur Joseph",456167,1988-01-28
+"647","Daniel Descalso","Diamondbacks","8392","Descalso","Daniel","Daniel William",518614,1986-10-19
+"648","Sammy Solis","Nationals","11457","Solis","Sammy","Samuel Robert",519301,1988-08-10
+"649","Danny Valencia","Orioles","6364","Valencia","Danny","Daniel Paul",502143,1984-09-19
+"650","Osmer Morales","Angels","17133","Morales","Osmer","Osmer Eduardo",591672,1992-10-30
+"651","Alex Avila","Diamondbacks","7476","Avila","Alex","Alexander Thomas",488671,1987-01-29
+"652","John Means","Orioles","16269","Means","John","John Alan",607644,1993-04-24
+"653","Aaron Slegers","Twins","15231","Slegers","Aaron","Aaron Allan",642083,1992-09-04
+"654","Josh Rogers","Orioles","18510","Rogers","Josh","Joshua Cole",642028,1994-07-10
+"655","Derek Law","Giants","13133","Law","Derek","Derek Robert",571882,1990-09-14
+"656","Rob Whalen","Mariners","14165","Whalen","Robert","Robert D.",547007,1994-01-31
+"657","Scott Kingery","Phillies","17975","Kingery","Scott","Scott M.",664068,1994-04-29
+"658","Michael Martinez","Indians","7358",NA,NA,NA,NA,NA
+"659","Mitch Garver","Twins","15161","Garver","Mitch","Mitchell Lyn",641598,1991-01-15
+"660","Mike Freeman","Mariners","11241","Freeman","Mike","Michael Barrett",502273,1987-08-04
+"661","Luis Sardinas","Padres","13153","Sardinas","Luis","Luis Alexander",596143,1993-05-16
+"662","Brandon Guyer","Indians","2636","Guyer","Brandon","Brandon Eric",446386,1986-01-28
+"663","Casey Sadler","Pirates","11209","Sadler","Casey","Casey Scott",594987,1990-07-13
+"664","Daniel Robertson","Rays","14145","Robertson","Daniel","Daniel Ray",621002,1994-03-22
+"665","Ian Happ","Cubs","17919","Happ","Ian","Ian Edward",664023,1994-08-12
+"666","Greg Garcia","Cardinals","10951","Garcia","Greg","Greg Joseph",594824,1989-08-08
+"667","Charlie Culberson","Braves","3298","Culberson","Charlie","Charles Edward",518586,1989-04-10
+"668","Carlos Tocci","Rangers","14558","Tocci","Carlos","Carlos Daniel",624636,1995-08-23
+"669","Pablo Sandoval","Giants","5409","Sandoval","Pablo","Pablo Emilio",467055,1986-08-11
+"670","Chase d'Arnaud","Giants","6652","d'Arnaud","Chase","Chase Jonathan",488818,1987-01-21
+"671","Phillip Ervin","Reds","14738","Ervin","Phil","Phillip S.",640447,1992-07-15
+"672","Mark Reynolds","Nationals","7619","Reynolds","Mark","Mark Andrew",448602,1983-08-03
+"673","Anthony Rizzo","Cubs","3473","Rizzo","Anthony","Anthony Vincent",519203,1989-08-08
+"674","Jake Petricka","Blue Jays","10534","Petricka","Jake","Jacob Steven",502593,1988-06-05
+"675","Jason Hursh","Braves","14914","Hursh","Jason","Jason Brewster",592422,1991-10-02
+"676","Jose Ruiz","Padres","14552","Ruiz","Jose","Jose Rafael",614179,1994-10-21
+"677","Eric Hanhold","Mets","18332","Hanhold","Eric","Eric Dru",621098,1993-11-01
+"678","Shae Simmons","Mariners","14200","Simmons","Shae","Shae Austin",623406,1990-09-03
+"679","Jake Esch","Padres","12756","Esch","Jake","Jacob Otto",605222,1990-03-27
+"680","Matt Koch","Diamondbacks","13420","Koch","Matt","Matthew David",571863,1990-11-02
+"681","Zack Weiss","Reds","15444","Weiss","Zack","Zachary D.",592848,1992-06-16
+"682","Tyler Pill","Mets","12751","Pill","Tyler","Tyler Stephen",543652,1990-05-29
+"683","Brandon Cumpton","Blue Jays","11366","Cumpton","Brandon","Brandon Tyler",592238,1988-11-16
+"684","Chris Gimenez","Twins","7324","Gimenez","Chris","Christopher Paul",460269,1982-12-27
+"685","Jake Barrett","Diamondbacks","13322","Barrett","Jake","Jake Dalton",545332,1991-07-22
+"686","William Cuevas","Tigers","13331","Cuevas","William","William Enrique",571035,1990-10-14
+"687","Josh Lucas","Athletics","11686","Lucas","Josh","Joshua Timothy",572998,1990-11-05
+"688","Austin Adams","Nationals","13801","Adams","Austin","Austin Lance",613534,1991-05-05
+"689","Jeremy Bleich","Athletics","9069","Bleich","Jeremy","Jeremy Michael",542946,1987-06-18
+"690","Carson Fulmer","White Sox","18311","Fulmer","Carson","Carson Springer",608334,1993-12-13
+"691","Tommy Layne","Yankees","7501","Layne","Tommy","Thomas Kevin",518927,1984-11-02
+"692","Joey Krehbiel","Diamondbacks","13707","Krehbiel","Joey","Joseph Roland",607216,1992-12-20
+"693","Aaron Brooks","Athletics","12272","Brooks","Aaron","Aaron Lee",605156,1990-04-27
+"694","Erick Aybar","Padres","4082","Aybar","Erick","Erick Johan",430947,1984-01-14
+"695","Hernan Perez","Brewers","5751","Perez","Hernan","Hernan Alejandro",541650,1991-03-26
+"696","Jose Torres","Padres","14957",NA,NA,NA,NA,NA
+"697","Jake Thompson","Phillies","14371","Thompson","Jake","Jacob Keith",622097,1994-01-31
+"698","David Goforth","Brewers","12166","Goforth","David","David Paul",592341,1988-10-11
+"699","Cody Martin","Mariners","12182","Martin","Cody","Cody Matthew",592533,1989-09-04
+"700","Kendrys Morales","Blue Jays","8610","Morales","Kendrys","Kendrys",434778,1983-06-20
+"701","Zac Curtis","- - -","16684","Curtis","Zac","Zachary Aaron",657205,1992-07-04
+"702","Johnny Field","Rays","15048","Field","Johnny","John David",608654,1992-02-20
+"703","Rob Scahill","White Sox","9286","Scahill","Rob","Robert Joseph",543746,1987-02-15
+"704","Carter Capps","Padres","12803","Capps","Carter","Carter Lewis",605169,1990-08-07
+"705","Murphy Smith","Blue Jays","9812","Smith","Murphy","Murphy",573166,1987-08-25
+"706","Mike Zagurski","Brewers","9683","Zagurski","Mike","Michael Justin",489448,1983-01-27
+"707","Tyler Kinley","- - -","18297","Kinley","Tyler","Tyler Harrison",641755,1991-01-31
+"708","Cliff Pennington","Reds","3395","Pennington","Cliff","Clifton Randolph",460060,1984-06-15
+"709","Taylor Jungmann","Brewers","13119","Jungmann","Taylor","Taylor Heath",543380,1989-12-18
+"710","Josh Edgin","Mets","10796","Edgin","Josh","Joshua Wayne",572831,1986-12-17
+"711","Cory Spangenberg","Padres","12294","Spangenberg","Cory","Cory Joseph",605486,1991-03-16
+"712","Jairo Labourt","Tigers","14996","Labourt","Jairo","Jairo Snaider",607951,1994-03-07
+"713","Austin Brice","Reds","17237","Brice","Austin","Austin Robert",592169,1992-06-19
+"714","Brock Stewart","Dodgers","16727","Stewart","Brock","Brock Allen",592779,1991-10-03
+"715","Luis Ortiz","Orioles","16942","Ortiz","Luis","Luis Francisco",656814,1995-09-22
+"716","Craig Breslow","- - -","4363","Breslow","Craig","Craig Andrew",444520,1980-08-08
+"717","Trey Wingenter","Padres","17793","Wingenter","Trey","Anthony James",622259,1994-04-15
+"718","Marc Rzepczynski","Mariners","6612","Rzepczynski","Marc","Marc Walter",519240,1985-08-29
+"719","Alex McRae","Pirates","16317","McRae","Alex","Alex James",656725,1993-04-06
+"720","Zach Lee","Padres","11468","Lee","Zach","Zachary Stephen",545346,1991-09-13
+"721","Damien Magnifico","Angels","13395","Magnifico","Damien","Damien Jack",571911,1991-05-24
+"722","Arcenio Leon","Tigers","8846","Leon","Arcenio","Arcenio",455376,1986-09-22
+"723","Max Povse","Mariners","16165","Povse","Max","Max Walter",605428,1993-08-23
+"724","Jason Gurka","Angels","8007","Gurka","Jason","Jason Isidore",543261,1988-01-10
+"725","Miguel Montero","Cubs","3364","Montero","Miguel","Miguel Angel",471083,1983-07-09
+"726","Nori Aoki","Astros","13075","Aoki","Nori","Norichika",493114,1982-01-05
+"727","Miguel Almonte","Royals","14139","Almonte","Miguel","Miguel Emilio",602083,1993-04-04
+"728","Leonel Campos","Blue Jays","12277","Campos","Leonel","Leonel Enrique",599998,1987-07-17
+"729","Sam Howard","Rockies","16265","Howard","Sam","Sam James",607572,1993-03-05
+"730","Daniel Corcino","Dodgers","9266","Corcino","Daniel","Daniel",542289,1990-08-26
+"731","J.J. Hoover","Diamondbacks","9037","Hoover","J. J.","James Allen",543331,1987-08-13
+"732","Wily Peralta","Brewers","7738","Peralta","Wily","Wily",503449,1989-05-08
+"733","Jose Fernandez","Blue Jays","14733","Fernandez","Jose","Jose Manuel",622774,1993-02-13
+"734","Justin Haley","Twins","13572","Haley","Justin","Justin Case",595234,1991-06-16
+"735","Troy Scribner","Diamondbacks","15570","Scribner","Troy","Troy Alex",644428,1991-07-02
+"736","Stefan Crichton","Orioles","16058","Crichton","Stefan","Stefan Brook",592233,1992-02-29
+"737","Jairo Diaz","Rockies","12774","Diaz","Jairo","Jairo Jose",545064,1991-05-27
+"738","Jen-Ho Tseng","Cubs","15524","Tseng","Jen-Ho","Jen-Ho",627500,1994-10-03
+"739","Ben Taylor","Indians","18114","Taylor","Ben","Benjamin Alan",664701,1992-11-12
+"740","Chad Qualls","Rockies","2170",NA,NA,NA,NA,NA
+"741","Jayson Aquino","Orioles","13150","Aquino","Jayson","Jayson Julio",593969,1992-11-22
+"742","Chris Smith","Blue Jays","14449","Smith","Chris","Christopher Patrick",627262,1988-08-19
+"743","Kyle McGowin","Nationals","15071","McGowin","Kyle","Kyle Keston",641851,1991-11-27
+"744","Jerry Vasto","- - -","17126","Vasto","Jerry","Gerard Joseph",657786,1992-02-12
+"745","Bryan Holaday","Marlins","11287","Holaday","Bryan","John Bryan",592407,1987-11-19
+"746","Connor Sadzeck","Rangers","13483","Sadzeck","Connor","Connor William",592712,1991-10-01
+"747","Matt Hall","Tigers","18076","Hall","Matt","Matthew Thomas",664180,1993-07-23
+"748","Diego Moreno","Rays","6238","Moreno","Diego","Diego Rafael",514981,1987-07-21
+"749","Drew Butera","Royals","3411","Butera","Drew","Andrew Edward",460077,1983-08-09
+"750","Wei-Chung Wang","Brewers","14382","Wang","Wei-Chung","Wei-Chung",623913,1992-04-25
+"751","Rubby de la Rosa","Diamondbacks","3862",NA,NA,NA,NA,NA
+"752","Rob Zastryzny","Cubs","15094","Zastryzny","Rob","Robert John",642239,1992-03-26
+"753","Austin Voth","Nationals","15047","Voth","Austin","Austin Lee",608723,1992-06-26
+"754","Dan Altavilla","Mariners","16507","Altavilla","Dan","Daniel",656186,1992-09-08
+"755","Jandel Gustave","Astros","14665",NA,NA,NA,NA,NA
+"756","Lucas Harrell","Blue Jays","7541",NA,NA,NA,NA,NA
+"757","Jace Peterson","Orioles","12325","Peterson","Jace","Jace Ryan",607054,1990-05-09
+"758","Justin Hancock","Cubs","12316","Hancock","Justin","Justin D.",606995,1990-10-28
+"759","Jose Ramirez","Braves","10171","Ramirez","Jose","Jose Altagracia",542432,1990-01-21
+"760","Taylor Guerrieri","Blue Jays","13616","Guerrieri","Taylor","Christopher Taylor",605260,1992-12-01
+"761","Casey Lawrence","Mariners","11121","Lawrence","Casey","Casey Lee",596271,1987-10-28
+"762","Jake Jewell","Angels","16958","Jewell","Jake","Jake R.",657228,1993-05-16
+"763","Ryan LaMarre","Twins","10700","LaMarre","Ryan","Ryan M.",534606,1988-11-21
+"764","Josh Ravin","Braves","2951","Ravin","Josh","Joshua Joseph",502051,1988-01-21
+"765","Jharel Cotton","Athletics","13654",NA,NA,NA,NA,NA
+"766","Randy Rosario","Twins","14508","Rosario","Randy","Randy Miguel",600968,1994-05-18
+"767","Andrew Romine","Tigers","1159","Romine","Andrew","Andrew James",461865,1985-12-24
+"768","Dean Deetz","Astros","16687","Deetz","Dean","Dean A.",657209,1993-11-29
+"769","Rob Brantly","White Sox","10655","Brantly","Rob","Robert Jacob",542963,1989-07-14
+"770","Tyler White","Astros","15564","White","Tyler","Brian Tyler",643603,1990-10-29
+"771","Glen Perkins","Twins","8041",NA,NA,NA,NA,NA
+"772","Leonys Martin","Cubs","11846","Martin","Leonys","Leonys",547982,1988-03-06
+"773","Tommy La Stella","Cubs","12371","La Stella","Tommy","Thomas F.",600303,1989-01-31
+"774","Carlos Gomez","Rays","4881","Gomez","Carlos","Carlos Argelis",460576,1985-12-04
+"775","Luke Gregerson","Astros","4090","Gregerson","Luke","Lucas John",502381,1984-05-14
+"776","Andres Blanco","Phillies","1907","Blanco","Andres","Andres Eloy",433217,1984-04-11
+"777","Victor Caratini","Cubs","14968","Caratini","Victor","Victor Manuel",605170,1993-08-17
+"778","Jake Smolinski","Athletics","5408","Smolinski","Jake","Jacob Michael",519295,1989-02-09
+"779","Jackson Stephens","Reds","14420","Stephens","Jackson","Jackson Tanner",623451,1994-05-11
+"780","Kyle Lloyd","Padres","15378","Lloyd","Kyle","Kyle Christopher",643414,1990-10-16
+"781","Pedro Florimon","Phillies","8385","Florimon","Pedro","Pedro Alexander",465753,1986-12-10
+"782","Adrian Sampson","Rangers","13339","Sampson","Adrian","Adrian David",592716,1991-10-07
+"783","Jonathan Broxton","Cardinals","4759",NA,NA,NA,NA,NA
+"784","Duane Underwood Jr.","Cubs","14677","Underwood","Duane","Duane Lee",621249,1994-07-20
+"785","Zach Neal","Dodgers","11294","Neal","Zach","Zachary Sheridan",594943,1988-11-09
+"786","Jean Machi","Mariners","3220","Machi","Jean","Jean Manuel",466948,1982-02-01
+"787","Keury Mella","Reds","15964","Mella","Keury","Keury",622492,1993-08-02
+"788","Justin Marks","Rays","10265",NA,NA,NA,NA,NA
+"789","Jesus Reyes","Reds","19277","Reyes","Jesus","Jesus Enmanuel",660875,1993-02-21
+"790","Tim Melville","- - -","9149","Melville","Tim","Timothy Macgill",543532,1989-10-09
+"791","Tyler Wilson","Orioles","12691","Wilson","Tyler","Philip Tyler",592869,1989-09-25
+"792","Luis Santos","Blue Jays","15006","Santos","Luis","Luis Gustavo",608601,1991-02-11
+"793","Seth Frankoff","Cubs","11346","Frankoff","Seth","James Seth",571676,1988-08-27
+"794","Nick Burdi","Pirates","16074","Burdi","Nick","Nicholas Edward",595897,1993-01-19
+"795","Jedd Gyorko","Cardinals","10816","Gyorko","Jedd","Jedd Lindon",576397,1988-09-23
+"796","Carlos Ruiz","Mariners","2579",NA,NA,NA,NA,NA
+"797","Jesmuel Valentin","Phillies","14548","Valentin","Jesmuel","Jesmuel Jose",621044,1994-05-12
+"798","Michael Kopech","White Sox","17282","Kopech","Michael","Michael Talbert",656629,1996-04-30
+"799","Taylor Motter","Mariners","12399","Motter","Taylor","Taylor Davis",600301,1989-09-18
+"800","Kazuhisa Makita","Padres","19757","Makita","Kazuhisa","Kazuhisa",628318,1984-11-10
+"801","Allen Webster","Cubs","3993","Webster","Allen","Carl Allen",543903,1990-02-10
+"802","Scooter Gennett","Reds","10339","Gennett","Scooter","Ryan Joseph",571697,1990-05-01
+"803","David Hess","Orioles","16130","Hess","David","David James",605276,1993-07-10
+"804","Neil Ramirez","- - -","7677","Ramirez","Neil","Neil Andrew",519166,1989-05-25
+"805","Alexi Ogando","Indians","10261","Ogando","Alexi","Alexi",468396,1983-10-05
+"806","Dean Kiekhefer","Athletics","10529","Kiekhefer","Dean","Dean Allen",518883,1989-06-07
+"807","Ryan Garton","- - -","14016","Garton","Ryan","Ryan Patrick",623439,1989-12-05
+"808","Roman Quinn","Phillies","13546","Quinn","Roman","Roman Tredarian",596451,1993-05-14
+"809","Jon Edwards","Indians","1483","Edwards","Jon","Jonathan Benjamin",457754,1988-01-08
+"810","Ross Detwiler","Mariners","2859","Detwiler","Ross","Ross Emery",446321,1986-03-06
+"811","Brandon Mann","Rangers","5172","Mann","Brandon","Brandon Michael",448167,1984-05-16
+"812","Trevor Gott","Nationals","15046","Gott","Trevor","Trevor Vaughan",641627,1992-08-26
+"813","Kyle Martin","Red Sox","14860","Martin","Kyle","Kyle Jared",573016,1991-01-18
+"814","Ranger Suarez","Phillies","17277","Suarez","Ranger","Ranger",624133,1995-08-26
+"815","Jeff Ferrell","Tigers","11506",NA,NA,NA,NA,NA
+"816","Ronald Herrera","Yankees","15688",NA,NA,NA,NA,NA
+"817","Jake Buchanan","Reds","10962","Buchanan","Jake","Jake T.",594772,1989-09-24
+"818","Deolis Guerra","Angels","8410","Guerra","Deolis","Deolis Alexander",500610,1989-04-17
+"819","Vidal Nuno","Rays","9674","Nuno","Vidal","Vidal Vicente",573064,1987-07-26
+"820","P.J. Conlon","Mets","18213","Conlon","P. J.","Patrick Joshua",664869,1993-11-11
+"821","Merandy Gonzalez","Marlins","17313","Gonzalez","Merandy","Merandy",642571,1995-10-09
+"822","Hunter Cervenka","Marlins","10510","Cervenka","Hunter","Colby Hunter",543017,1990-01-03
+"823","Justin Miller","Nationals","8580","Miller","Justin","Justin Ryan",502522,1987-06-13
+"824","Nick Tropeano","Angels","12385","Tropeano","Nick","Nicholas Paul",607374,1990-08-27
+"825","Kevin McGowan","Mets","15215","McGowan","Kevin","Kevin Michael",641850,1991-10-18
+"826","Justus Sheffield","Yankees","17285","Sheffield","Justus","Justus Kane",656954,1996-05-13
+"827","Alejandro Chacin","Reds","13530","Chacin","Alejandro","David Alejandro",591701,1993-06-24
+"828","Jeremy Guthrie","Nationals","2072",NA,NA,NA,NA,NA
+"829","Henderson Alvarez","Phillies","5669","Alvarez","Henderson","Henderson Javier",506693,1990-04-18
+"830","Francisco Arcia","Angels","10286","Arcia","Francisco","Francisco Antonio",516472,1989-09-14
+"831","Jalen Beeks","- - -","17192","Beeks","Jalen","Jalen Christopher",656222,1993-07-10
+"832","Drew Gagnon","Mets","12545","Gagnon","Drew","Andrew Miles",543193,1990-06-26
+"833","Tayron Guerrero","Marlins","11691","Guerrero","Tayron","Tayron Luis",594027,1991-01-09
+"834","Willians Astudillo","Twins","15608","Astudillo","Willians","Willians Jose",553902,1991-10-14
+"835","Yacksel Rios","Phillies","15007","Rios","Yacksel","Yacksel",605441,1993-06-27
+"836","Jimmy Yacabonis","Orioles","15157","Yacabonis","Jimmy","James Allin",642231,1992-03-21
+"837","Miguel Castro","Orioles","15684","Castro","Miguel","Miguel Angel",612434,1994-12-24
+"838","Jhan Marinez","- - -","5830","Marinez","Jhan","Jhan Carlos",501697,1988-08-12
+"839","Jason Wheeler","Twins","13128","Wheeler","Jason","Jason McDonald",605528,1990-10-27
+"840","Wes Parsons","Braves","14764","Parsons","Wes","Arthur Wesley",641149,1992-09-06
+"841","Dovydas Neverauskas","Pirates","11604","Neverauskas","Dovydas","Dovydas",596720,1993-01-14
+"842","Sam Moll","Athletics","14874","Moll","Sam","Samuel John",594580,1992-01-03
+"843","Sean Gilmartin","Mets","12781","Gilmartin","Sean","Sean Patrick",543219,1990-05-08
+"844","Cesar Valdez","- - -","9013","Valdez","Cesar","Cesar Miguel",491624,1985-03-17
+"845","Luke Farrell","- - -","15101","Farrell","Luke","Luke Thomas",608652,1991-06-07
+"846","Tyler Webb","- - -","14974","Webb","Tyler","Jon Tyler",643778,1990-07-20
+"847","Chris Volstad","White Sox","9901","Volstad","Chris","Christopher Kenneth",458690,1986-09-23
+"848","Dietrich Enns","Twins","13932","Enns","Dietrich","Dietrich",608650,1991-05-16
+"849","Christian Bethancourt","Padres","10028","Bethancourt","Christian","Christian Gabriel",542194,1991-09-02
+"850","Daniel Gossett","Athletics","16164","Gossett","Daniel","Daniel James",605254,1992-11-13
+"851","Cionel Perez","Astros","19614","Perez","Cionel","Cionel Felix",672335,1996-04-21
+"852","Brett Graves","Marlins","16218","Graves","Brett","Brett Thomas",605255,1993-01-30
+"853","Aaron Blair","Braves","14934","Blair","Aaron","Aaron Daniel",594760,1992-05-26
+"854","Williams Jerez","Angels","14338","Jerez","Williams","Williams Alexander",605301,1992-05-16
+"855","Sandy Baez","Tigers","17754","Baez","Sandy","Sandy",622783,1993-11-25
+"856","Tanner Anderson","Pirates","18029","Anderson","Tanner","Tanner Ackley",664196,1993-05-27
+"857","Chris Rowley","Blue Jays","18820","Rowley","Chris","Christopher Ryan",635903,1990-08-14
+"858","Zac Reininger","Tigers","15285","Reininger","Zac","Zachary Ryan",643617,1993-01-28
+"859","Jose Reyes","Mets","1736","Reyes","Jose","Jose Bernabe",408314,1983-06-11
+"860","Drew Storen","Reds","6983",NA,NA,NA,NA,NA
+"861","Andres Machado","Royals","14681","Machado","Andres","Andres Eduardo",600921,1993-04-22
+"862","Stephen Gonsalves","Twins","15492","Gonsalves","Stephen","Stephen William",624427,1994-07-08
+"863","Simon Castro","Athletics","9243","Castro","Simon","Simon",501563,1988-04-09
+"864","Hansel Robles","- - -","11801","Robles","Hansel","Hansel Manuel",570663,1990-08-13
+"865","Kyle Ryan","Tigers","11753","Ryan","Kyle","Kyle",594986,1991-09-25
+"866","Wilmer Font","Dodgers","5257","Font","Wilmer","Wilmer",521655,1990-05-24
+"867","Evan Scribner","Mariners","7525","Scribner","Evan","Evan Lee",519267,1985-07-19
+"868","Christian Bergman","Mariners","10925","Bergman","Christian","Christian Stanford",548357,1988-05-04
+"869","Justin Shafer","Blue Jays","16132","Shafer","Justin","Justin Healy",596101,1992-09-18
+"870","Alex Wimmers","Twins","11394","Wimmers","Alex","Alex Michael",592872,1988-11-01
+"871","Jeff Beliveau","Blue Jays","8504","Beliveau","Jeff","Jeffrey Ryan",542924,1987-01-17
+"872","Dan Runzler","Pirates","4080","Runzler","Dan","Daniel Joseph",502130,1985-03-30
+"873","David Hale","- - -","9756","Hale","David","David E.",571735,1987-09-27
+"874","Jose De Leon","Rays","15463",NA,NA,NA,NA,NA
+"875","Kevin Plawecki","Mets","13807","Plawecki","Kevin","Kevin Jeffrey",608700,1991-02-26
+"876","Carlos Torres","Nationals","7624","Torres","Carlos","Carlos Ephriam",448614,1982-10-22
+"877","Buddy Boshers","Twins","8490","Boshers","Buddy","Jeffrey Alan",542953,1988-05-09
+"878","Jeff Mathis","Diamondbacks","3448","Mathis","Jeff","Jeffrey Stephen",425772,1983-03-31
+"879","Ryan Cook","Mariners","8855","Cook","Ryan","Ryan William",475857,1987-06-30
+"880","Jacob Rhame","Mets","15267","Rhame","Jacob","Jacob Alan",642008,1993-03-16
+"881","Clay Holmes","Pirates","13649","Holmes","Clay","Clayton Walter",605280,1993-03-27
+"882","D.J. Snelten","Giants","15949","Snelten","D. J.","Donald Marek",592769,1992-05-29
+"883","Hector Santiago","Twins","4026","Santiago","Hector","Hector Felipe",502327,1987-12-16
+"884","Jose Valdez","Giants","14470","Valdez","Jose","Jose Alfredo",572308,1990-03-01
+"885","Zack Littell","Twins","15823","Littell","Zack","Zack Stuart",641793,1995-10-05
+"886","Jeff Brigham","Marlins","16631","Brigham","Jeff","Jeff John",656257,1992-02-16
+"887","Onelki Garcia","Royals","13674","Garcia","Onelki","Onelki",607162,1989-08-02
+"888","Kyle Wright","Braves","19665","Wright","Kyle","Kyle Hardy",657140,1995-10-02
+"889","Michael Brady","Athletics","8461","Brady","Michael","Michael James",572728,1987-03-21
+"890","John Lamb","Angels","8493","Lamb","John","John Michael",543424,1990-07-10
+"891","Chance Adams","Yankees","18135","Adams","Chance","Chance",664856,1994-08-10
+"892","Eric Stout","Royals","16873","Stout","Eric","Eric Joseph",657770,1993-03-27
+"893","Ian Hamilton","White Sox","19261","Hamilton","Ian","Ian Francis",641656,1995-06-16
+"894","Buddy Baumann","Padres","9309","Baumann","Buddy","George Charles",571473,1987-12-09
+"895","Eric O'Flaherty","Braves","5746",NA,NA,NA,NA,NA
+"896","Jordan Jankowski","Astros","13313","Jankowski","Jordan","Jordan Jacob",543357,1989-05-17
+"897","Seth Maness","Royals","12235","Maness","Seth","Michael Seth",595307,1988-10-14
+"898","J.P. Howell","Blue Jays","8245","Howell","J. P.","James Phillip",434442,1983-04-25
+"899","Tom Wilhelmsen","Diamondbacks","9975","Wilhelmsen","Tom","Thomas Mark",452666,1983-12-16
+"900","Michael Tonkin","Twins","10315","Tonkin","Michael","Michael Harvey",543859,1989-11-19
+"901","Dillon Overton","- - -","15627","Overton","Dillon","Dillon Ray",592614,1991-08-17
+"902","Jimmy Cordero","Nationals","15690","Cordero","Jimmy","Jimmy Gerard",622772,1991-10-19
+"903","Josh Smoker","Mets","10285","Smoker","Josh","Joshua Michael",519294,1988-11-26
+"904","Johnny Barbato","Pirates","11440","Barbato","Johnny","John Edward",592127,1992-07-11
+"905","Grant Dayton","Dodgers","11203",NA,NA,NA,NA,NA
+"906","Tyler Bashlor","Mets","15203","Bashlor","Tyler","Tyler Morris",641341,1993-04-16
+"907","Josh Osich","Giants","11528","Osich","Josh","Joshua Michael",592612,1988-09-03
+"908","Junichi Tazawa","Marlins","4079","Tazawa","Junichi","Junichi",547749,1986-06-06
+"909","Logan Verrett","Orioles","12905","Verrett","Logan","Scott Logan",548337,1990-06-19
+"910","Luke Bard","Angels","14288","Bard","Luke","Luke Francis",572703,1990-11-13
+"911","Hisashi Iwakuma","Mariners","13048","Iwakuma","Hisashi","Hisashi",547874,1981-04-12
+"912","Nik Turley","Twins","5530",NA,NA,NA,NA,NA
+"913","Nestor Cortes","Orioles","17874","Cortes","Nestor","Nestor",641482,1994-12-10
+"914","Ryan Meisinger","Orioles","18105","Meisinger","Ryan","Ryan Thomas",664682,1994-05-04
+"915","Adam Plutko","Indians","15846","Plutko","Adam","Adam Gregory",592644,1991-10-03
+"916","Justin Nicolino","Marlins","11754","Nicolino","Justin","Justin Brian",592593,1991-11-22
+"917","Jaime Schultz","Rays","15066","Schultz","Jaime","Jaime Matthew",621289,1991-06-20
+"918","Barrett Astin","Reds","14812","Astin","Barrett","Barrett",592120,1991-10-22
+"919","Angel Sanchez","Pirates","11776","Sanchez","Angel","Angel Luis",605795,1989-11-28
+"920","Kolby Allard","Braves","18694","Allard","Kolby","Kolby Kenneth",663465,1997-08-13
+"921","Jacob Turner","- - -","10185","Turner","Jacob","Jacob Edward",545363,1991-05-21
+"922","Dustin McGowan","Marlins","8600",NA,NA,NA,NA,NA
+"923","Gerson Bautista","Mets","19256","Bautista","Gerson","Gerson",639373,1995-05-31
+"924","Matt Magill","Twins","3950","Magill","Matt","Matthew W.",543483,1989-11-10
+"925","Michael Blazek","Brewers","9654","Blazek","Michael","Michael Robert",518468,1989-03-16
+"926","Felix Jorge","Twins","14532","Jorge","Felix","Felix De Jesus",602928,1994-01-02
+"927","Joe Blanton","Nationals","4849",NA,NA,NA,NA,NA
+"928","Edward Mujica","Tigers","3970","Mujica","Edward","Edward Jose",465629,1984-05-10
+"929","Myles Jaye","Tigers","11769","Jaye","Myles","Myles Joseph",594867,1991-12-28
+"930","Paolo Espino","- - -","8246","Espino","Paolo","Paolo Alesandro",502179,1987-01-10
+"931","Harrison Musgrave","Rockies","16532","Musgrave","Harrison","Harrison Scott",643466,1992-03-03
+"932","Raul Alcantara","Athletics","12790","Alcantara","Raul","Raul",593417,1992-12-04
+"933","Chris Heston","- - -","10302","Heston","Chris","Christopher L.",518790,1988-04-10
+"934","Kevin Quackenbush","Reds","12360","Quackenbush","Kevin","Kevin Robert",534812,1988-11-28
+"935","Ryan Burr","White Sox","17536","Burr","Ryan","Ryan Matthew",621114,1994-05-28
+"936","Enrique Hernandez","Dodgers","10472","Hernandez","Enrique","Enrique J.",571771,1991-08-24
+"937","Ben Meyer","Marlins","18854","Meyer","Ben","Benjamin K.",656738,1993-01-30
+"938","Jesen Therrien","Phillies","15853",NA,NA,NA,NA,NA
+"939","Walker Lockett","Padres","13804","Lockett","Walker","Andrew Walker",621141,1994-05-03
+"940","Michael Ynoa","White Sox","14093","Ynoa","Michael","Michael Jose",573589,1991-09-24
+"941","Chris Flexen","Mets","13896","Flexen","Chris","Christopher John",623167,1994-07-01
+"942","Rookie Davis","Reds","14962","Davis","Rookie","William Theron",606959,1993-04-29
+"943","Tyler Thornburg","Red Sox","10688","Thornburg","Tyler","Tyler Michael",592804,1988-09-29
+"944","Mat Latos","Blue Jays","3815","Latos","Mat","Mathew Adam",502009,1987-12-09
+"945","Matt Dermody","Blue Jays","14844","Dermody","Matt","Matthew Phillip",571616,1990-07-04
+"946","Brett Kennedy","Padres","17877","Kennedy","Brett","Brett",664028,1994-08-04
+"947","Chris Young","Royals","3196",NA,NA,NA,NA,NA
+"948","Corey Oswalt","Mets","13677","Oswalt","Corey","Corey Edward",621261,1993-09-03
+"949","Jake Newberry","Royals","15136","Newberry","Jake","Christopher Jake",623470,1994-11-20
+"950","Jacob Nix","Padres","17775","Nix","Jacob","Jacob James",656798,1996-01-09
+"951","Warwick Saupold","Tigers","13211","Saupold","Warwick","Warwick Anthony",599683,1990-01-16
+"952","Nick Kingham","Pirates","11694","Kingham","Nick","Nicholas Gordon",592468,1991-11-08
+"953","Tim Collins","Nationals","3164","Collins","Tim","Timothy Michael",525768,1989-08-21
+"954","Robby Scott","Red Sox","13042","Scott","Robby","Robert John",582494,1989-08-29
+"955","Ariel Hernandez","Reds","15603","Hernandez","Ariel","Ariel",554374,1992-03-02
+"956","Tim Adleman","Reds","10968","Adleman","Tim","Timothy Max",534947,1987-11-13
+"957","Jason Adam","Royals","11861","Adam","Jason","Jason Kendall",592094,1991-08-04
+"958","Nick Rumbelow","Mariners","14867","Rumbelow","Nick","Nicholas Bruno",592705,1991-09-06
+"959","Brad Goldberg","White Sox","14776","Goldberg","Brad","Bradley Andrew",643329,1990-02-21
+"960","Mike Bolsinger","Blue Jays","11137","Bolsinger","Mike","Michael P.",502211,1988-01-29
+"961","Lisalverto Bonilla","Reds","11266","Bonilla","Lisalverto","Lisalverto",570810,1990-06-18
+"962","Austen Williams","Nationals","16309","Williams","Austen","Austen Thomas",657117,1992-12-19
+"963","Jason Motte","Braves","5861",NA,NA,NA,NA,NA
+"964","Joely Rodriguez","Phillies","11487","Rodriguez","Joely","Joely",570257,1991-11-14
+"965","Justin Grimm","Cubs","11720","Grimm","Justin","Justin Scott",518748,1988-08-16
+"966","Preston Guilmet","- - -","7303","Guilmet","Preston","Preston Blake",543258,1987-07-27
+"967","Elieser Hernandez","Marlins","16933","Hernandez","Elieser","Elieser Alexis",622694,1995-05-03
+"968","Yimi Garcia","Dodgers","12095","Garcia","Yimi","Yimi",554340,1990-08-18
+"969","Chris Tillman","Orioles","5279","Tillman","Chris","Christopher Steven",501957,1988-04-15
+"970","Ryan Carpenter","Tigers","12699","Carpenter","Ryan","Ryan Nicholas",543001,1990-08-22
+"971","Tim Peterson","Mets","13946","Peterson","Tim","Timothy Louis",623402,1991-02-22
+"972","Evan Phillips","- - -","17734","Phillips","Evan","Evan John",623465,1994-09-11
+"973","Josh Collmenter","Braves","7312","Collmenter","Josh","Joshua Michael",518567,1986-02-07
+"974","Cody Carroll","Orioles","17664","Carroll","Cody","Cody Mark",606944,1992-10-15
+"975","Jefry Rodriguez","Nationals","17018","Rodriguez","Jefry","Jefry Osvaldo",622446,1993-07-26
+"976","Ricardo Pinto","Phillies","16318","Pinto","Ricardo","Ricardo Antonio",620982,1994-01-20
+"977","Adam Wilk","- - -","8421","Wilk","Adam","Adam Robert",573244,1987-12-09
+"978","Nick Tepesch","- - -","11716","Tepesch","Nick","Nicholas James",519344,1988-10-12
+"979","Tanner Rainey","Reds","17610","Rainey","Tanner","Tanner Scott",663432,1992-12-25
+"980","Antonio Bastardo","Pirates","8844","Bastardo","Antonio","Antonio Francisco",455374,1985-09-21
+"981","Casey Fien","- - -","3926",NA,NA,NA,NA,NA
+"982","Tom Koehler","- - -","6570",NA,NA,NA,NA,NA
+"983","Chris Beck","- - -","13418","Beck","Chris","Christopher Michael",571476,1990-09-04
+"984","Brian Ellington","Marlins","17233","Ellington","Brian","Brian Michael",623395,1990-08-04
+"985","Travis Wood","- - -","9884",NA,NA,NA,NA,NA
+"986","Drew Hutchison","- - -","10732","Hutchison","Drew","Andrew Scott",571800,1990-08-22
+"987","Jason Grilli","- - -","521",NA,NA,NA,NA,NA
+"988","Burch Smith","Royals","12784","Smith","Burch","Burch Taylor",572143,1990-04-12
+"989","Pedro Araujo","Orioles","17697","Araujo","Pedro","Pedro",606478,1993-07-02
+"990","Kevin Jepsen","Rangers","6475","Jepsen","Kevin","Kevin Martin",448178,1984-07-26
+"991","Neftali Feliz","- - -","18","Feliz","Neftali","Neftali",491703,1988-05-02
+"992","Bronson Arroyo","Reds","978",NA,NA,NA,NA,NA
+"993","Francisco Rodriguez","Tigers","1642","Rodriguez","Francisco","Francisco Jose",408061,1982-01-07
+"994","David Holmberg","White Sox","7725","Holmberg","David","David A.",571787,1991-07-19
+"995","Chris Smith","Athletics","4544",NA,NA,NA,NA,NA
+"996","Jered Weaver","Padres","4235",NA,NA,NA,NA,NA
+"997","Mike Pelfrey","White Sox","5203",NA,NA,NA,NA,NA
